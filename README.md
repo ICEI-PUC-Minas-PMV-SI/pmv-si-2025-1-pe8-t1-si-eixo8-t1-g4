@@ -30,5 +30,5 @@ A iniciativa surgiu a partir de um processo estruturado de Inteligência Competi
 
 | Etapa         | Atividades |
 |  :----:   | ----------- |
-| ETAPA 1         |[APRESENTAÇÃO DA EMPRESA DO PROJETO](docs/etapa1) <br> |
+| ETAPA 1         |[APRESENTAÇÃO DA EMPRESA DO PROJETO](docs/etapa1.md) <br> |
 | ETAPA 2         |[PLANO DE INTELIGÊNCIA COMPETITIVA](docs/etapa2.md) <br> |
