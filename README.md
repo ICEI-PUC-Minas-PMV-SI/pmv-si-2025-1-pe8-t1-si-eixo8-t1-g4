@@ -21,7 +21,7 @@ A iniciativa surgiu a partir de um processo estruturado de Inteligência Competi
 * William Xavier de Barros 
 
 
-## Orientador
+## Orientadora
 
-* Nome completo do professor 1
+* Simone Fernandes Queiroz
 
