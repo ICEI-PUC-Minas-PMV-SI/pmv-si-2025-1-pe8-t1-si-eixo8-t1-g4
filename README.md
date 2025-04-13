@@ -26,7 +26,7 @@ A iniciativa surgiu a partir de um processo estruturado de Inteligência Competi
 * Simone Fernandes Queiroz
 
 
-# Planejamento
+## Planejamento
 
 | Etapa         | Atividades |
 |  :----:   | ----------- |
