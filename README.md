@@ -1,4 +1,4 @@
-# Título do Projeto
+# AGROPET
 
 `CURSO: Sistemas de Informação`
 
@@ -6,16 +6,19 @@
 
 `SEMESTRE: 8º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Este projeto faz parte do Trabalho de Conclusão de Curso em Sistemas de Informação e tem como objetivo o desenvolvimento de uma solução tecnológica personalizada para o petshop AGROPET, localizado em Contagem/MG.
+
+A iniciativa surgiu a partir de um processo estruturado de Inteligência Competitiva (IC), com foco principal na definição estratégica do mix de produtos. Ao longo do projeto, foram realizadas análises dos processos internos, levantamento de dados operacionais e pesquisas de mercado, visando apoiar a tomada de decisões por meio da organização e automação de informações.
+
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Bruna Lourenço Duarte
+* Gabriele Fernanda Lima
+* João Pedro Pinto Matozinhos
+* Neymmar Padilha Palma
+* Vinícius Damasceno Souza
+* William Xavier de Barros 
 
 
 ## Orientador
