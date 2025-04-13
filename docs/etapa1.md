@@ -1,3 +1,5 @@
+
+
 # 1.1. INTRODUÇÃO 
 
 O presente projeto tem como objetivo analisar e propor soluções tecnológicas para a gestão de informação no petshop AGROPET, localizado em Contagem - MG. O estudo visa compreender os desafios enfrentados na administração do negócio e avaliar oportunidades de melhoria por meio da implementação de um sistema de informação adequado. 
