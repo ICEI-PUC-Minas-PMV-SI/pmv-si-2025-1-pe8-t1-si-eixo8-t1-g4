@@ -30,3 +30,14 @@ O AGROPET é um pequeno petshop que recentemente passou por uma transição de p
 A equipe do petshop é composta pela proprietária e um funcionário, sendo que a dona se dedica mais à parte financeira e à reposição de produtos, enquanto o funcionário cuida do atendimento ao cliente e da organização da loja.  
 
 Além disso, contam com uma veterinária terceirizada para a venda de medicamentos, o que garante que possam oferecer vacinas aos clientes. No futuro, a empresa planeja expandir seus serviços, incluindo banho e tosa, para atender melhor seus clientes e aumentar sua receita. 
+
+<div style = "text-align: center;">
+  <p>Gráfico 1 – Faturamento Mercado Pet no Brasil em R$ bilhões</p>
+  <img src="img/mercado-pet.png" alt="Faturamento Mercado Pet no Brasil">
+  <p>Fonte:( Adaptado de Revista Cães&Gatos apud Abinpet e Instituto Pet Brasil, 2024)</p>
+</div>
+
+![Faturamento Mercado Pet no Brasil](img/mercado-pet.png)
+
+
+O mercado pet encontra-se dividido em segmentos, conforme descrito no quadro abaixo, no 3º trimestre de 2024, o segmento de Pet Food(alimentação) liderou o setor com 55% do faturamento, no entanto em comparação com o mesmo período em 2023 observa-se que os Segmentos Pet Vet(produtos veterinários) e de Serviços veterinários tiveram aumento de mais de 15%, o que pode indicar oportunidade de mercado e aumento nos cuidados com a saúde dos pets.
