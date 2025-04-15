@@ -100,3 +100,47 @@ Quadro 2 - Análise SWOT para a empresa Agropet
 | **FRAQUEZAS:** são pontos que ainda podem ser melhorados. <br><br> - Elaboração de processos <br> - Gestão do negócio <br> - Sistemas de Informação | **AMEAÇAS:** são fatores de risco, obstáculos e desafios que podem atrapalhar os planos. <br><br> - Alta carga de impostos para pagar <br> - Legislação em constante atualização <br> - Concorrência |
 
 Fonte: Autores, 2025
+
+
+1.4. ANÁLISE DE PROCESSOS E SISTEMAS 
+
+a - Vendas e Atendimento ao Cliente 
+
+As vendas são registradas manualmente em um caderno, sem a emissão de comprovantes formais, exceto nos casos de pagamento via cartão ou Pix, em que o comprovante da maquininha é entregue ao cliente. Não há um controle estruturado do histórico de compras de clientes e pets, sendo que todas as informações são trocadas informalmente pelo WhatsApp. A falta de um sistema de registro impacta o acompanhamento de clientes e dificulta o planejamento de ações de marketing ou promoções direcionadas.
+
+<div style = "text-align: center;">
+  <img src="img/fluxograma-vendas.png" alt="Fluxograma de vendas">
+</div>
+
+b - Controle de Estoque 
+
+O controle de entrada de mercadorias é feito manualmente em cadernos, com o saldo inicial registrado na chegada dos produtos. A saída não é controlada em tempo real, sendo a reposição realizada apenas quando a proprietária identifica visualmente que o estoque está baixo.
+
+<div style = "text-align: center;">
+  <img src="img/fluxograma-estoque.png" alt="Fluxograma de gestão de estoque">
+</div>
+
+c - Gestão Financeira 
+
+O fluxo de caixa é atualizado manualmente no início de cada dia e registrado em um caderno. O controle financeiro usa uma planilha simples, armazenada no computador da empresa, sem medidas específicas de segurança. O lucro é avaliado mensalmente, mas sem uma análise detalhada de despesas fixas e variáveis. 
+
+<div style = "text-align: center;">
+  <img src="img/fluxograma-financeiro.png" alt="Fluxograma da gestão financeira">
+</div>
+
+d - Serviços Oferecidos (Vacinação) 
+
+Não há um sistema de agendamento para serviço de vacinação oferecido ou controle de histórico de vacinação. Toda a comunicação é feita pelo WhatsApp. 
+
+e - Cadastro de Clientes e Pets 
+
+Atualmente, não há um cadastro formal. As informações estão fragmentadas em conversas de WhatsApp. 
+
+f - Processos Administrativos 
+
+As decisões administrativas são tomadas de forma intuitiva, sem base em relatórios ou métricas estruturadas. O planejamento financeiro se limita ao controle de contas a pagar. 
+
+
+Os processos analisados no petshop AGROPET evidenciam a necessidade de maior estruturação e automação para garantir eficiência e melhor gestão operacional. Atualmente, diversas atividades são realizadas manualmente, como o registro de vendas, controle de estoque e acompanhamento financeiro, o que pode gerar erros e retrabalho. A ausência de um cadastro formal de clientes e pets dificulta a comunicação estratégica com os clientes e o planejamento de ações comerciais. Além disso, o controle de agendamentos e serviços veterinários ainda é informal, sendo realizado via WhatsApp sem um histórico estruturado. 
+
+Diante desse cenário, as principais oportunidades de melhoria incluem a implementação de um sistema integrado de gestão, que possibilite o registro automatizado de vendas, controle de estoque em tempo real e gerenciamento financeiro estruturado. A criação de um banco de dados de clientes e pets permitirá um melhor acompanhamento do histórico de serviços e compras, possibilitando ações personalizadas. Além disso, a automação de alertas para baixo estoque facilitará no processo de reposição, enquanto um painel de indicadores permitirá análises estratégicas para a tomada de decisão. Essas melhorias proporcionarão maior organização, eficiência e crescimento sustentável para o petshop. 
