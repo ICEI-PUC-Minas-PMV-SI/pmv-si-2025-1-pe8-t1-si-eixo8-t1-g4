@@ -30,5 +30,8 @@ A iniciativa surgiu a partir de um processo estruturado de Inteligência Competi
 
 | Etapa         | Atividades |
 |  :----:   | ----------- |
-| ETAPA 1         |[APRESENTAÇÃO DA EMPRESA DO PROJETO](docs/etapa1.md) <br> |
-| ETAPA 2         |[PLANO DE INTELIGÊNCIA COMPETITIVA](docs/etapa2.md) <br> |
+| ETAPA 1         |[Apresentação da empresa do projeto](docs/etapa1.md) <br> |
+| ETAPA 2         |[Plano de inteligência competitiva](docs/etapa2.md) <br> |
+| ETAPA 3         |[Desenvolvimento de soluções de SI](docs/etapa3.md) <br> |
+| ETAPA 4         |[Planejamento Estratégico de TI](docs/etapa4.md) <br> |
+| ETAPA 5         |[Avaliação e Gestão Contínua de TI](docs/etapa5.md) <br> |
