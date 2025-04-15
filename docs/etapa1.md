@@ -80,5 +80,23 @@ Em 2024, as Pequenas e Médias empresas representam a maioria do faturamento com
 <div style = "text-align: center;">
   <p>Gráfico 2 – Canais de acesso a produtos e serviços por faturamento em R$ bilhões no 3º trimestre de 2024</p>
   <img src="img/canais-acesso.png" alt="Canais de acesso a produtos e serviços por faturamento">
-  <p>Fonte: (Fonte: (Adaptado de Revista Cães&Gatos apud Abinpet e Inst. Pet Brasil, 2024) )</p>
+  <p>Fonte: Fonte: (Adaptado de Revista Cães&Gatos apud Abinpet e Inst. Pet Brasil, 2024)</p>
 </div>
+
+Apesar no crescimento no faturamento e novas empresas no mercado pet, dados da Abinpet indicam que o setor encontra desafios com a alta carga de impostos para pagar, sendo o segmento Pet Food o mais impactado com cerca de 50% de tributos, sendo a média mundial por volta de 18%. 
+
+ 
+
+## 1.3.1 Análise SWOT 
+
+A análise SWOT também conhecida como análise FOFA em português, é uma ferramenta de gestão que possibilita uma visão ampla e estratégica sobre negócios e/ou projetos, auxilia na identificação de pontos fortes e fracos, oportunidades e ameaças, permitindo uma melhor compreensão e planejamento para tomada de decisão. Para auxiliar no desenvolvimento de sistema para a empresa Agropet, foi elaborada a análise abaixo: 
+
+Quadro 2 - Análise SWOT para a empresa Agropet
+
+
+| Ambiente Interno                                                                                                                                   | Ambiente Externo                                                                                              |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| **FORÇAS** são destaques e diferenciais frente aos concorrentes: <br> - Prestação de serviços veterinários através da terceirizada <br> - Variedade na oferta de produtos/mercadorias <br> - Localização na cidade de Contagem (um dos maiores pólos logísticos de Minas Gerais) | **OPORTUNIDADES:** são espaços para melhorar e crescer no mercado. <br><br> - Mercado em crescimento, em especial nos segmentos de alimentação e produtos veterinários <br> - Relação de afeto entre tutores e pets <br> - 1,8 pet por residência brasileira, com predominância de cães |
+| **FRAQUEZAS:** são pontos que ainda podem ser melhorados. <br><br> - Elaboração de processos <br> - Gestão do negócio <br> - Sistemas de Informação | **AMEAÇAS:** são fatores de risco, obstáculos e desafios que podem atrapalhar os planos. <br><br> - Alta carga de impostos para pagar <br> - Legislação em constante atualização <br> - Concorrência |
+
+Fonte: Autores, 2025
