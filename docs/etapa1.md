@@ -2,7 +2,7 @@
 
 # 1.1. INTRODUÇÃO 
 
-O presente projeto tem como objetivo analisar e propor soluções tecnológicas para a gestão de informação no petshop AGROPET, localizado em Contagem - MG. O estudo visa compreender os desafios enfrentados na administração do negócio e avaliar oportunidades de melhoria por meio da implementação de um sistema de informação adequado. 
+O presente projeto tem como objetivo analisar e propor soluções tecnológicas para a gestão de informação no petshop ANAGRO PETS LTDA, localizado em Contagem - MG. O estudo visa compreender os desafios enfrentados na administração do negócio e avaliar oportunidades de melhoria por meio da implementação de um sistema de informação adequado. 
 
 Além de buscar contribuir diretamente para a organização estudada, o projeto também tem um papel fundamental no desenvolvimento acadêmico e profissional dos participantes. Através desse estudo, será possível aprimorar habilidades como levantamento de requisitos, análise de processos, identificação de problemas organizacionais e desenvolvimento de soluções tecnológicas viáveis. 
 
@@ -33,7 +33,7 @@ Além disso, contam com uma veterinária terceirizada para a venda de medicament
 
 Dados sobre a organização escolhida: 
 
-* Nome Fantasia: AGROPET 
+* Nome Fantasia: ANAGRO PETS 
 
 * Endereço: Praça Nossa Sra. de Fátima, 102 - Jardim Industrial, Contagem - MG, 32220-610 
 
