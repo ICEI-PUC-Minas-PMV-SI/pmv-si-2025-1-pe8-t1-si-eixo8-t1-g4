@@ -9,7 +9,7 @@ Além de buscar contribuir diretamente para a organização estudada, o projeto 
 
 ## Justificativa da escolha 
 
-O AGROPET foi escolhido para este estudo pois se trata de um pequeno empreendimento do setor pet, que enfrenta desafios comuns a empresas do mesmo porte, como controle financeiro e organização de processos. A proprietária demonstrou interesse em participar do projeto e compartilhar informações para viabilizar a pesquisa. 
+O ANAGRO PETS foi escolhido para este estudo pois se trata de um pequeno empreendimento do setor pet, que enfrenta desafios comuns a empresas do mesmo porte, como controle financeiro e organização de processos. A proprietária demonstrou interesse em participar do projeto e compartilhar informações para viabilizar a pesquisa. 
 
  
 ## Objetivos 
