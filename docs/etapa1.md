@@ -89,9 +89,9 @@ Apesar no crescimento no faturamento e novas empresas no mercado pet, dados da A
 
 ## 1.3.1 Análise SWOT 
 
-A análise SWOT também conhecida como análise FOFA em português, é uma ferramenta de gestão que possibilita uma visão ampla e estratégica sobre negócios e/ou projetos, auxilia na identificação de pontos fortes e fracos, oportunidades e ameaças, permitindo uma melhor compreensão e planejamento para tomada de decisão. Para auxiliar no desenvolvimento de sistema para a empresa Agropet, foi elaborada a análise abaixo: 
+A análise SWOT também conhecida como análise FOFA em português, é uma ferramenta de gestão que possibilita uma visão ampla e estratégica sobre negócios e/ou projetos, auxilia na identificação de pontos fortes e fracos, oportunidades e ameaças, permitindo uma melhor compreensão e planejamento para tomada de decisão. Para auxiliar no desenvolvimento de sistema para a empresa Anagro Pets, foi elaborada a análise abaixo: 
 
-Quadro 2 - Análise SWOT para a empresa Agropet
+Quadro 2 - Análise SWOT para a empresa Anagro Pets
 
 
 | Ambiente Interno                                                                                                                                   | Ambiente Externo                                                                                              |
@@ -141,6 +141,6 @@ f - Processos Administrativos
 As decisões administrativas são tomadas de forma intuitiva, sem base em relatórios ou métricas estruturadas. O planejamento financeiro se limita ao controle de contas a pagar. 
 
 
-Os processos analisados no petshop AGROPET evidenciam a necessidade de maior estruturação e automação para garantir eficiência e melhor gestão operacional. Atualmente, diversas atividades são realizadas manualmente, como o registro de vendas, controle de estoque e acompanhamento financeiro, o que pode gerar erros e retrabalho. A ausência de um cadastro formal de clientes e pets dificulta a comunicação estratégica com os clientes e o planejamento de ações comerciais. Além disso, o controle de agendamentos e serviços veterinários ainda é informal, sendo realizado via WhatsApp sem um histórico estruturado. 
+Os processos analisados no petshop ANAGRO PETS evidenciam a necessidade de maior estruturação e automação para garantir eficiência e melhor gestão operacional. Atualmente, diversas atividades são realizadas manualmente, como o registro de vendas, controle de estoque e acompanhamento financeiro, o que pode gerar erros e retrabalho. A ausência de um cadastro formal de clientes e pets dificulta a comunicação estratégica com os clientes e o planejamento de ações comerciais. Além disso, o controle de agendamentos e serviços veterinários ainda é informal, sendo realizado via WhatsApp sem um histórico estruturado. 
 
 Diante desse cenário, as principais oportunidades de melhoria incluem a implementação de um sistema integrado de gestão, que possibilite o registro automatizado de vendas, controle de estoque em tempo real e gerenciamento financeiro estruturado. A criação de um banco de dados de clientes e pets permitirá um melhor acompanhamento do histórico de serviços e compras, possibilitando ações personalizadas. Além disso, a automação de alertas para baixo estoque facilitará no processo de reposição, enquanto um painel de indicadores permitirá análises estratégicas para a tomada de decisão. Essas melhorias proporcionarão maior organização, eficiência e crescimento sustentável para o petshop. 
