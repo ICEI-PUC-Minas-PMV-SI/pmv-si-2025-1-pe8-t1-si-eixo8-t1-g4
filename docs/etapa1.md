@@ -25,7 +25,7 @@ O ANAGRO PETS foi escolhido para este estudo pois se trata de um pequeno empreen
 
 # 1.2. ORGANIZAÇÃO DO PROJETO 
 
-O AGROPET é um pequeno petshop que recentemente passou por uma transição de propriedade, sendo vendido do filho para a mãe. Atualmente, a gestão enfrenta desafios, principalmente na organização financeira, pois a administração do caixa ainda é feita manualmente por meio de planilhas e cadernos. 
+O ANAGRO PETS é um pequeno petshop que recentemente passou por uma transição de propriedade, sendo vendido do filho para a mãe. Atualmente, a gestão enfrenta desafios, principalmente na organização financeira, pois a administração do caixa ainda é feita manualmente por meio de planilhas e cadernos. 
 
 A equipe do petshop é composta pela proprietária e um funcionário, sendo que a dona se dedica mais à parte financeira e à reposição de produtos, enquanto o funcionário cuida do atendimento ao cliente e da organização da loja.  
 
