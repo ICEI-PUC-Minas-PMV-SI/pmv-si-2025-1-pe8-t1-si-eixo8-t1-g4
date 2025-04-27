@@ -1,4 +1,4 @@
-# AGROPET
+# ANAGRO PETS LTDA
 
 `CURSO: Sistemas de Informação`
 
@@ -6,7 +6,7 @@
 
 `SEMESTRE: 8º`
 
-Este projeto faz parte do Trabalho de Conclusão de Curso em Sistemas de Informação e tem como objetivo o desenvolvimento de uma solução tecnológica personalizada para o petshop AGROPET, localizado em Contagem/MG.
+Este projeto faz parte do Trabalho de Conclusão de Curso em Sistemas de Informação e tem como objetivo o desenvolvimento de uma solução tecnológica personalizada para o petshop ANAGRO PETS LTDA, localizado em Contagem/MG.
 
 A iniciativa surgiu a partir de um processo estruturado de Inteligência Competitiva (IC), com foco principal na definição estratégica do mix de produtos. Ao longo do projeto, foram realizadas análises dos processos internos, levantamento de dados operacionais e pesquisas de mercado, visando apoiar a tomada de decisões por meio da organização e automação de informações.
 
