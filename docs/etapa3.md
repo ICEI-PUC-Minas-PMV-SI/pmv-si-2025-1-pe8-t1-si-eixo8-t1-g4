@@ -36,7 +36,7 @@ Perguntas-chave (KIQs) Formuladas:
 
 * Cadastro de produtos estruturado, incluindo unidade de medida, preço e vencimento.
 
-* Registro de vendas com baixa automática de estoque, considerando frações (ex: 1,5kg ou 10mL).
+* Registro de vendas com baixa automática de estoque.
 
 * Controle de validade dos produtos, com alertas de vencimento próximo.
 
@@ -51,7 +51,7 @@ Cadastro de produtos com:
 
 * Preço por unidade base.
 
-* Lote e data de validade (campos opcionais).
+* Data de validade (campos opcionais).
 
 Registro de vendas:
 
