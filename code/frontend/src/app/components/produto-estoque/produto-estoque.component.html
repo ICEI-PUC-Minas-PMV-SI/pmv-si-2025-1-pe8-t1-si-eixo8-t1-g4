@@ -1,0 +1,172 @@
+<!-- @if(isLoading) {
+  <div class="overlay-loading">
+    <mat-spinner></mat-spinner>
+    <p>Buscando produtos...</p>
+  </div>
+} -->
+
+<app-title-page
+  title="Gestão de Produtos e Estoque"
+  subtitle="Faça a busca de produtos conforme os filtros."
+  [buttons]="buttonsTitlePage"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <form [formGroup]="pesquisaForm">
+    <div class="row">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+      >
+        <mat-label>Nome do Produto</mat-label>
+        <input
+          matInput
+          formControlName="nomeProduto"
+          placeholder="Digite o nome do produto"
+        />
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+      >
+        <mat-label>Categoria do Produto</mat-label>
+        <mat-select
+          formControlName="idCategoriaProduto"
+          placeholder="Selecione a categoria do produto"
+        >
+          @for (categoriaProduto of categoriaProdutoList; track
+          categoriaProduto) {
+          <mat-option [value]="categoriaProduto.id">{{
+            categoriaProduto.descricao
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <div style="display: flex; justify-content: center; gap: 10px">
+    <button mat-flat-button class="button-secondary" (click)="limparFiltro()">
+      Limpar
+    </button>
+    <button mat-flat-button class="button-primary" (click)="onPesquisar()">
+      Pesquisar
+    </button>
+  </div>
+</div>
+
+<br /><br />
+
+<!-- <div [class.loading-disabled]="isLoading"> -->
+<div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome do Produto</th>
+      <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Categoria do Produto
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.categoria }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="medida">
+      <th mat-header-cell *matHeaderCellDef>Medida</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.quantidadePorMedida }} {{ element.siglaUnidadeMedida }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precoCusto">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Preço de Custo</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.precoCusto | priceMask }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="margemLucro">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Margem de Lucro</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.margemLucro / 100 | percent : "1.2-2" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precoFinalVenda">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Preço Final de Venda
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.precoFinalVenda | priceMask }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantidadeDisponivel">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Quantidade em Estoque
+      </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center">
+        <span class="cell-estoque">
+          {{ element.quantidadeDisponivel }}
+
+          <mat-icon
+            (click)="openModalAtualizarEstoque(element.id)"
+            matTooltip="Atualizar Estoque"
+            matTooltipPosition="below"
+            class="icon-atualizar-estoque"
+            >autorenew</mat-icon
+          >
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="box-buttons-acoes">
+          <mat-icon
+            (click)="utilService.redirectTo('produto/visualizacao', element.id)"
+            matTooltip="Visualizar"
+            matTooltipPosition="below"
+            >remove_red_eye</mat-icon
+          >
+          <mat-icon
+            (click)="utilService.redirectTo('produto/edicao', element.id)"
+            matTooltip="Editar"
+            matTooltipPosition="below"
+            >edit</mat-icon
+          >
+          <mat-icon
+            (click)="excluirProduto(element.id)"
+            matTooltip="Excluir"
+            matTooltipPosition="below"
+            >delete</mat-icon
+          >
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Nenhum registro encontrado.</td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [length]="totalElements"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

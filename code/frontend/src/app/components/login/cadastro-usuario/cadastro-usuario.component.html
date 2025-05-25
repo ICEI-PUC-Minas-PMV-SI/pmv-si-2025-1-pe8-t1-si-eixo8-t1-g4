@@ -1,0 +1,68 @@
+<div class="card p-4 shadow-sm mx-auto" style="max-width: 400px">
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="row" style="margin-bottom: 30px">
+      <h3 class="text-center title-page">Cadastro de Usuário</h3>
+    </div>
+    <div class="row">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12"
+      >
+        <mat-label>*Nome</mat-label>
+        <input
+          matInput
+          formControlName="nome"
+          placeholder="Digite o nome completo"
+        />
+
+        @if(cadastroForm.get('nome')?.hasError('required') &&
+        cadastroForm.get('nome')?.touched) {
+        <mat-hint>Campo obrigatório</mat-hint> }
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12"
+      >
+        <mat-label>*Usuário</mat-label>
+        <input
+          matInput
+          formControlName="usuario"
+          placeholder="Digite o nome de usuário (sem espaços)"
+        />
+        @if(cadastroForm.get('usuario')?.hasError('required') &&
+        cadastroForm.get('usuario')?.touched) {
+        <mat-hint>Campo obrigatório</mat-hint> }
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12"
+      >
+        <mat-label>*Senha</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="senha"
+          placeholder="Digite a senha"
+        />
+
+        @if(cadastroForm.get('senha')?.hasError('required') &&
+        cadastroForm.get('senha')?.touched) {
+        <mat-hint>Campo obrigatório</mat-hint> }
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <button mat-flat-button class="button-primary col-12">Cadastrar</button>
+    </div>
+  </form>
+</div>

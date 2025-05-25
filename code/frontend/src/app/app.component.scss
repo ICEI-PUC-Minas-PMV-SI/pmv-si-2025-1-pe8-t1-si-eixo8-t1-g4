@@ -1,0 +1,55 @@
+@use "../styles.scss";
+
+mat-toolbar {
+  .container-logo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  box-shadow: styles.$box-shadow !important;
+
+  .toolbar-title {
+    font: styles.$font-title;
+    font-size: 28px;
+    color: styles.$color-primary-500;
+  }
+
+  .mat-icon {
+    color: styles.$color-primary-500;
+  }
+
+  .logo-icon {
+    width: 3rem;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.box-buttons-toolbar {
+  display: flex;
+}
+
+.box-content {
+  width: 99%;
+  padding: 30px 10px;
+}
+
+.box-icons-alerta {
+  display: flex;
+  gap: 5px;
+
+  .icon-warning {
+    color: styles.$color-warning-border;
+    margin-right: 15px;
+  }
+}
+
+.divider-vertical {
+  border-left: 1px solid styles.$color-neutral-200;
+  margin-right: 5px;
+}

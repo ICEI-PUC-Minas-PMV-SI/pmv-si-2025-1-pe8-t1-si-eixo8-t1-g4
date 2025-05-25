@@ -1,0 +1,99 @@
+<app-title-page
+  title="Visualização - Vacinação"
+  subtitle="Visualize os dados de vacinação do pet."
+  [buttons]="buttonsTitlePage"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <div>
+    <form [formGroup]="vacinacaoForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Cliente</mat-label>
+          <input matInput formControlName="cliente" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Pet</mat-label>
+          <input matInput formControlName="pet" />
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <mat-accordion [multi]="false">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados de Vacinação </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let vacinaFormGroup of vacinaFormGroupList; let i = index">
+        <mat-expansion-panel expanded="true" disabled="true" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span> Vacina {{ i + 1 }} </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="vacinaFormGroup">
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Observações</mat-label>
+                <input matInput formControlName="observacoes" />
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Data de Aplicação</mat-label>
+                <input matInput formControlName="dataAplicacao" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Data da Próxima Dose</mat-label>
+                <input matInput formControlName="dataProximaDose" />
+              </mat-form-field>
+            </div>
+          </form>
+        </mat-expansion-panel>
+        <br />
+      </div>
+    </mat-expansion-panel>
+    <br />
+  </mat-accordion>
+</div>

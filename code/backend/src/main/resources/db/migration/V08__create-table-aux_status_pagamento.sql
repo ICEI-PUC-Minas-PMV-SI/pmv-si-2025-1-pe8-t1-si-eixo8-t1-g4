@@ -1,0 +1,10 @@
+CREATE TABLE AUX_STATUS_PAGAMENTO (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(10) NOT NULL
+);
+
+INSERT INTO AUX_STATUS_PAGAMENTO (id, descricao)
+VALUES 
+(1, 'Pendente'),
+(2, 'Confirmado'),
+(3, 'Recusado');

@@ -1,0 +1,267 @@
+<app-title-page
+  title="Visualização - Cliente & Pets"
+  subtitle="Visualize os dados do cliente."
+  [buttons]="buttonsTitlePage"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <mat-accordion [multi]="false">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados do Cliente </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <form [formGroup]="clienteForm">
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Nome</mat-label>
+              <input matInput formControlName="nome" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>CPF</mat-label>
+              <input matInput mask="000.000.000-00" formControlName="cpf" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>E-mail</mat-label>
+              <input matInput formControlName="email" />
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Número de Celular</mat-label>
+              <input
+                matInput
+                mask="(00) 00000-0000"
+                formControlName="celular"
+              />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Data de Nascimento</mat-label>
+              <input matInput formControlName="dataNascimento" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Gênero</mat-label>
+              <input matInput formControlName="genero" />
+            </mat-form-field>
+          </div>
+        </form>
+
+        <form [formGroup]="enderecoForm">
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+            >
+              <mat-label>CEP</mat-label>
+              <input matInput mask="00000-000" formControlName="cep" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Logradouro</mat-label>
+              <input matInput formControlName="logradouro" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-1 col-lg-1 col-md-6 col-sm-12"
+            >
+              <mat-label>Nº</mat-label>
+              <input matInput formControlName="numero" />
+            </mat-form-field>
+
+            <mat-checkbox
+              [checked]="enderecoSemNumero"
+              formControlName="semNumero"
+              class="col-1"
+              >S/N</mat-checkbox
+            >
+
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+            >
+              <mat-label>Complemento</mat-label>
+              <input matInput formControlName="complemento" />
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-12"
+            >
+              <mat-label>Bairro</mat-label>
+              <input matInput formControlName="bairro" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-12"
+            >
+              <mat-label>Cidade</mat-label>
+              <input matInput formControlName="cidade" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-2"
+            >
+              <mat-label>UF</mat-label>
+              <input matInput formControlName="uf" />
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </mat-expansion-panel>
+
+    <br />
+
+    <mat-expansion-panel expanded="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados dos Pets </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let petFormGroup of petFormGroupList; let i = index">
+        <mat-expansion-panel expanded="true" disabled="true" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span> Pet {{ i + 1 }} </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="petFormGroup">
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+              >
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+              >
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput formControlName="dataNascimento" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+              >
+                <mat-label>Idade</mat-label>
+                <input matInput formControlName="idade" />
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Tipo</mat-label>
+                <input matInput formControlName="tipo" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Raça</mat-label>
+                <input matInput formControlName="raca" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Porte</mat-label>
+                <input matInput formControlName="porte" />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Peso</mat-label>
+                <input
+                  matInput
+                  formControlName="peso"
+                  suffix=" kg"
+                  mask="separator.2"
+                  thousandSeparator="."
+                  decimalMarker=","
+                />
+              </mat-form-field>
+            </div>
+          </form>
+        </mat-expansion-panel>
+        <br />
+      </div>
+
+      @if(petIsNotRegistred) {
+      <p>Este cliente não possui nenhum pet cadastrado.</p>
+      }
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

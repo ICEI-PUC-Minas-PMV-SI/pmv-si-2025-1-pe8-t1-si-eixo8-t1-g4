@@ -1,0 +1,23 @@
+<div class="box-title-page">
+  <div>
+    <h1 class="title-page">{{ title }}</h1>
+    @if(subtitle !== '') {
+    <h2 class="subtitle-page">{{ subtitle }}</h2>
+    }
+  </div>
+  <div class="box-buttons-title-page">
+    @for(button of buttons; track button) {
+    <button
+      mat-flat-button
+      [disabled]="button.disabled"
+      [ngClass]="{
+        'button-primary': button.primary,
+        'button-secondary': !button.primary
+      }"
+      (click)="executeButtonAction(button)"
+    >
+      {{ button.name }}
+    </button>
+    }
+  </div>
+</div>

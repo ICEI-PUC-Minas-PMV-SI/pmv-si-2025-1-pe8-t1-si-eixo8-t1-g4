@@ -1,0 +1,70 @@
+@use "../../../../styles.scss";
+
+body {
+  padding: 20px;
+  overflow: auto;
+
+  .box-title-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    .title-page {
+      color: styles.$color-primary-500;
+      font: styles.$font-title;
+    }
+
+    .icon-close {
+      color: styles.$color-primary-500;
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .box-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  mat-accordion {
+    mat-expansion-panel.mat-expansion-panel-clientes {
+      margin: 5px 0 20px;
+
+      mat-expansion-panel-header.mat-expansion-panel-header-clientes {
+        margin: 0 !important;
+
+        .mat-expansion-panel-header-title {
+          font-size: 22px !important;
+        }
+      }
+    }
+  }
+
+  .button-expandir-ranking {
+    margin-top: 20px;
+    border-radius: 1px;
+  }
+
+  .icon-whatsapp {
+    color: #128c7e !important;
+    cursor: pointer;
+    width: 22px;
+  }
+}
+
+.mat-column-index {
+  width: 10%;
+}
+.mat-column-nomeCliente {
+  width: 55%;
+}
+.mat-column-valorComprado {
+  width: 25%;
+}
+.mat-column-acoes {
+  width: 10%;
+}

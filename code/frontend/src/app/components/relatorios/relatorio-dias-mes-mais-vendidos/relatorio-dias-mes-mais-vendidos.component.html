@@ -1,0 +1,14 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Gráfico de Dias do Mês que Mais Vendem</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div style="display: block" class="box-grafico-coluna">
+    <canvas baseChart [data]="barChartData" chartType="bar"> </canvas>
+  </div>
+</body>

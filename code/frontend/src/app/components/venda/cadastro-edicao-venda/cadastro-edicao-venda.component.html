@@ -1,0 +1,302 @@
+<app-title-page
+  [title]="titlePage"
+  subtitle="Preencha os campos e clique em salvar."
+  [buttons]="buttonsTitlePage"
+  (buttonSaveEvent)="salvar()"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <form [formGroup]="registroVendaForm">
+    <div class="row">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12 col-xl-8 col-lg-8 col-md-6 col-sm-12"
+      >
+        <mat-label>*Cliente</mat-label>
+        <input
+          matInput
+          [formControl]="clienteFiltroControl"
+          [matAutocomplete]="autoCliente"
+          placeholder="Digite para pesquisar o cliente"
+        />
+        <mat-autocomplete
+          #autoCliente="matAutocomplete"
+          (optionSelected)="clienteSelecionado($event.option.value)"
+          [displayWith]="displayClienteFn"
+        >
+          <mat-option
+            *ngFor="let cliente of clienteListFiltrado$ | async"
+            [value]="cliente"
+          >
+            {{ cliente.descricao }}
+          </mat-option>
+        </mat-autocomplete>
+
+        @if(registroVendaForm.get('idCliente')?.hasError('required') &&
+        registroVendaForm.get('idCliente')?.touched) {
+        <mat-hint>Campo obrigatório</mat-hint> }
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+      >
+        <mat-label>*Valor Total</mat-label>
+        <input
+          matInput
+          formControlName="valorTotal"
+          prefix="R$ "
+          mask="separator.2"
+          thousandSeparator="."
+          decimalMarker=","
+        />
+      </mat-form-field>
+    </div>
+    @if(buttonVisualizacaoPetsClienteIsShowed) {
+    <div style="margin-left: 10px;">
+      <button
+        mat-fab
+        extended
+        type="button"
+        (click)="openModalVisualizacaoClientePets()"
+      >
+        <mat-icon>remove_red_eye</mat-icon>Visualizar Pets do Cliente
+      </button>
+    </div>
+    <br />
+    }
+
+    <mat-accordion [multi]="false">
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span> Dados dos Produtos </span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div
+          *ngFor="
+            let itemVendaFormGroup of itemVendaFormGroupList;
+            let i = index
+          "
+        >
+          <mat-expansion-panel
+            expanded="true"
+            disabled="true"
+            hideToggle="true"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span> Item {{ i + 1 }} </span>
+                <button
+                  mat-mini-fab
+                  type="button"
+                  (click)="removerItemVenda(i)"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <form [formGroup]="itemVendaFormGroup">
+              <div class="row">
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                >
+                  <mat-label>*Produto</mat-label>
+                  <input
+                    matInput
+                    [formControl]="produtoFiltroControlList[i]"
+                    [matAutocomplete]="autoProduto"
+                    placeholder="Digite para pesquisar o produto"
+                  />
+                  <mat-autocomplete
+                    #autoProduto="matAutocomplete"
+                    (optionSelected)="
+                      produtoSelecionado(
+                        $event.option.value,
+                        itemVendaFormGroup
+                      )
+                    "
+                    [displayWith]="displayProdutoFn"
+                  >
+                    <mat-option
+                      *ngFor="
+                        let produto of produtoListFiltradoList$[i] | async
+                      "
+                      [value]="produto"
+                    >
+                      {{ produto.descricao }}
+                    </mat-option>
+                  </mat-autocomplete>
+
+                  @if(registroVendaForm.get('idProduto')?.hasError('required')
+                  && registroVendaForm.get('idProduto')?.touched) {
+                  <mat-hint>Campo obrigatório</mat-hint> }
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+                >
+                  <mat-label>Medida Base</mat-label>
+                  <input matInput formControlName="medidaProduto" />
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+                >
+                  <mat-label>*Preço Unitário</mat-label>
+                  <input
+                    matInput
+                    formControlName="precoUnitario"
+                    prefix="R$ "
+                    mask="separator.2"
+                    thousandSeparator="."
+                    decimalMarker=","
+                  />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                >
+                  <mat-label>Quantidade Total Disponível em Estoque</mat-label>
+                  <input
+                    matInput
+                    formControlName="quantidadeTotalDisponivelEstoque"
+                  />
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                >
+                  <mat-label>*Unidade de Venda</mat-label>
+                  <mat-select formControlName="idUnidadeMedidaVenda">
+                    @for (unidadeMedida of unidadeMedidaList; track
+                    unidadeMedida) {
+                    <mat-option [value]="unidadeMedida.id">
+                      {{ unidadeMedida.descricao }} ({{ unidadeMedida.sigla }})
+                    </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                >
+                  <mat-label>*Quantidade a Vender</mat-label>
+                  <input
+                    matInput
+                    formControlName="quantidadeVenda"
+                    mask="0*"
+                    placeholder="Selecione a unidade de venda e digite a quantidade"
+                    (input)="
+                      verificarQuantidadeProdutoEstoque(itemVendaFormGroup)
+                    "
+                  />
+                </mat-form-field>
+                <mat-form-field
+                  appearance="outline"
+                  floatLabel="always"
+                  hideRequiredMarker
+                  class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                >
+                  <mat-label>*Subtotal</mat-label>
+                  <input
+                    matInput
+                    formControlName="subtotal"
+                    prefix="R$ "
+                    mask="separator.2"
+                    thousandSeparator="."
+                    decimalMarker=","
+                  />
+                </mat-form-field>
+              </div>
+            </form>
+          </mat-expansion-panel>
+          <br />
+        </div>
+
+        <button
+          mat-fab
+          extended
+          type="button"
+          (click)="adicionarItemVenda(null)"
+          class="btn-adicionar-item"
+        >
+          <mat-icon>add</mat-icon>Adicionar item
+        </button>
+      </mat-expansion-panel>
+      <br />
+      <mat-expansion-panel expanded="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span> Dados de Pagamento </span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="row">
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+          >
+            <mat-label>*Método de Pagamento</mat-label>
+            <mat-select
+              formControlName="idMetodoPagamento"
+              placeholder="Selecione o método de pagamento"
+              (selectionChange)="selectMetodoPagamento()"
+            >
+              @for (metodoPagamento of metodoPagamentoList; track
+              metodoPagamento) {
+              <mat-option [value]="metodoPagamento.id">
+                {{ metodoPagamento.descricao }}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+          >
+            <mat-label>*Parcelas</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="parcelasPagamento"
+              placeholder="Selecione a forma de pagamento e insira o número de parcelas"
+            />
+
+            @if(registroVendaForm.get('parcelasPagamento')?.hasError('required')
+            && registroVendaForm.get('parcelasPagamento')?.touched) {
+            <mat-hint>Campo obrigatório</mat-hint> }
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

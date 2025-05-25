@@ -1,0 +1,100 @@
+<div class="box-header">
+  <mat-toolbar>
+    <div (click)="utilService.redirectTo('home')" class="container-logo">
+      <img src="logo.png" alt="Logo ANAGRO PETS" class="logo-icon" />
+
+      <span class="toolbar-title">ANAGRO PETS</span>
+    </div>
+
+    <span class="example-spacer"></span>
+
+    @if(authService.getAccessToken() !== null) {
+    <div class="box-buttons-toolbar">
+      <div class="box-icons-alerta">
+        <div
+          style="display: flex; align-items: center; cursor: pointer"
+          (click)="openDialogPetsAniversarioProximo()"
+        >
+          <button mat-icon-button style="padding: 0">
+            <mat-icon>cake</mat-icon>
+          </button>
+          @if(petsAniversarioProximoList.length > 0) {
+          <div>
+            <mat-icon class="icon-warning">warning</mat-icon>
+          </div>
+          }
+        </div>
+        <div
+          style="display: flex; align-items: center; cursor: pointer"
+          (click)="openDialogVencimentoProximo()"
+        >
+          <button mat-icon-button style="padding: 0">
+            <mat-icon>schedule</mat-icon>
+          </button>
+          @if(produtosVencimentoProximoList.length > 0) {
+          <div>
+            <mat-icon class="icon-warning">warning</mat-icon>
+          </div>
+          }
+        </div>
+        <div
+          style="display: flex; align-items: center; cursor: pointer"
+          (click)="openDialogEstoqueBaixo()"
+        >
+          <button mat-icon-button style="padding: 0">
+            <mat-icon>inventory_2</mat-icon>
+          </button>
+          @if(produtosEstoqueBaixoList.length > 0) {
+          <div>
+            <mat-icon class="icon-warning">warning</mat-icon>
+          </div>
+          }
+        </div>
+        <div
+          style="display: flex; align-items: center; cursor: pointer"
+          (click)="openDialogVacinacaoPet('VACINA-PROXIMO')"
+        >
+          <button mat-icon-button style="padding: 0">
+            <mat-icon>vaccines</mat-icon>
+          </button>
+          @if(petsVacinaProximoList.length > 0) {
+          <div>
+            <mat-icon class="icon-warning">warning</mat-icon>
+          </div>
+          }
+        </div>
+        <div
+          style="display: flex; align-items: center; cursor: pointer"
+          (click)="openDialogVacinacaoPet('VACINA-ATRASADA')"
+        >
+          <button mat-icon-button style="padding: 0">
+            <mat-icon>medical_services</mat-icon>
+          </button>
+          @if(petsVacinaAtrasadaList.length > 0) {
+          <div>
+            <mat-icon class="icon-warning">warning</mat-icon>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div style="display: flex">
+        <div class="divider-vertical"></div>
+        <div>
+          <button mat-icon-button style="padding: 0">
+            <mat-icon (click)="utilService.redirectTo('conta')"
+              >account_circle</mat-icon
+            >
+          </button>
+          <button mat-icon-button (click)="authService.logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </mat-toolbar>
+</div>
+<div class="box-content">
+  <router-outlet></router-outlet>
+</div>

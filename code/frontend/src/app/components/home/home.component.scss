@@ -1,0 +1,44 @@
+@use "../../../styles.scss";
+
+.box-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.card {
+  width: 345px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.mat-mdc-card-outlined {
+  border-radius: styles.$border-radius-md;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0;
+
+  .mat-icon {
+    color: styles.$color-primary-500;
+  }
+}
+
+.mat-mdc-card-title {
+  color: styles.$color-primary-500;
+  font: styles.$font-text-xlarge-600;
+}
+
+.mat-mdc-card-subtitle {
+  color: styles.$color-neutral-900;
+  font: styles.$font-text-medium-400;
+}

@@ -1,0 +1,19 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Gráfico de Tipo dos Pets</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div class="box-grafico-pizza">
+    <canvas
+      baseChart
+      [data]="{ labels: chartLabels, datasets: chartDataset }"
+      [type]="chartType"
+    >
+    </canvas>
+  </div>
+</body>

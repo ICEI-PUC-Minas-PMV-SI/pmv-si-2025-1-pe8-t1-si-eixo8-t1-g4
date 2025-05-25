@@ -1,0 +1,22 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Gráfico de Idade dos Pets</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div class="box-grafico-coluna">
+    <canvas
+      baseChart
+      [data]="{
+        labels: labels,
+        datasets: [{ data: data, label: 'Pets por idade' }]
+      }"
+      chartType="bar"
+    >
+    </canvas>
+  </div>
+</body>

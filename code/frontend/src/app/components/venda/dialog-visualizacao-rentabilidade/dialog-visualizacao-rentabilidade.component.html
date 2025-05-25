@@ -1,0 +1,207 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Rentabilidade da Venda</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div>
+    <form [formGroup]="registroVendaForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+        >
+          <mat-label>Valor Total</mat-label>
+          <input
+            matInput
+            formControlName="valorTotal"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+        >
+          <mat-label>Lucro da Venda</mat-label>
+          <input
+            matInput
+            formControlName="lucro"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+        >
+          <mat-label>Porcentagem de Lucro da Venda (%)</mat-label>
+          <input
+            matInput
+            formControlName="porcentagemLucro"
+            suffix="%"
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+      </div>
+
+      <mat-accordion [multi]="false">
+        <mat-expansion-panel expanded="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span> Dados dos Produtos </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div
+            *ngFor="
+              let itemVendaFormGroup of itemVendaFormGroupList;
+              let i = index
+            "
+          >
+            <mat-expansion-panel
+              expanded="true"
+              disabled="true"
+              hideToggle="true"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span> Item {{ i + 1 }} </span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <form [formGroup]="itemVendaFormGroup">
+                <div class="row">
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                  >
+                    <mat-label>*Produto</mat-label>
+                    <input matInput formControlName="produto" />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Quantidade de Venda</mat-label>
+                    <input
+                      matInput
+                      formControlName="quantidadeVenda"
+                      mask="0*"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Preço Unitário de Custo</mat-label>
+                    <input
+                      matInput
+                      formControlName="precoUnitarioCusto"
+                      prefix="R$ "
+                      mask="separator.2"
+                      thousandSeparator="."
+                      decimalMarker=","
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Margem de Lucro (%)</mat-label>
+                    <input
+                      matInput
+                      formControlName="margemLucro"
+                      suffix="%"
+                      mask="separator.2"
+                      thousandSeparator="."
+                      decimalMarker=","
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Preço Unitário de Venda</mat-label>
+                    <input
+                      matInput
+                      formControlName="precoUnitarioVenda"
+                      prefix="R$ "
+                      mask="separator.2"
+                      thousandSeparator="."
+                      decimalMarker=","
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Subtotal</mat-label>
+                    <input
+                      matInput
+                      formControlName="subtotal"
+                      prefix="R$ "
+                      mask="separator.2"
+                      thousandSeparator="."
+                      decimalMarker=","
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    floatLabel="always"
+                    hideRequiredMarker
+                    class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                  >
+                    <mat-label>Lucro do Item</mat-label>
+                    <input
+                      matInput
+                      formControlName="lucro"
+                      prefix="R$ "
+                      mask="separator.2"
+                      thousandSeparator="."
+                      decimalMarker=","
+                    />
+                  </mat-form-field>
+                </div>
+              </form>
+            </mat-expansion-panel>
+            <br />
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br />
+    </form>
+  </div>
+</body>

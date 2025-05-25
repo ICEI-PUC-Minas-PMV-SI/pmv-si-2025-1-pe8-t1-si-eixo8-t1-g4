@@ -1,0 +1,36 @@
+@use "../../../../styles.scss";
+
+body {
+  padding: 20px;
+
+  .box-title-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    .title-page {
+      color: styles.$color-primary-500;
+      font: styles.$font-title;
+    }
+
+    .icon-close {
+      color: styles.$color-primary-500;
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .box-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  max-height: 90vh; /* altura máxima relativa à viewport */
+  overflow: auto;
+}

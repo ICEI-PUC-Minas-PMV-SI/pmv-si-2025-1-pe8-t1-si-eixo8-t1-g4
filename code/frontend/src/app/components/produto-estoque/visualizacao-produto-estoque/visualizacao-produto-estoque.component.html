@@ -1,0 +1,171 @@
+<app-title-page
+  title="Visualização - Produto"
+  subtitle="Visualize os dados do produto."
+  [buttons]="buttonsTitlePage"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <form [formGroup]="produtoForm">
+    <div class="title-page-section">
+      <h3 class="title-page-section">Produto</h3>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Categoria</mat-label>
+          <input matInput formControlName="categoria" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>Quantidade por Medida</mat-label>
+          <input
+            matInput
+            formControlName="quantidadePorMedida"
+            mask="0*"
+            placeholder="Digite a quantidade por medida"
+          />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>Unidade de Medida</mat-label>
+          <input matInput formControlName="unidadeMedida" />
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Medida Completa</mat-label>
+          <input matInput formControlName="medidaCompleta" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>Preço de Custo</mat-label>
+          <input
+            matInput
+            formControlName="precoCusto"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>Margem de Lucro (%)</mat-label>
+          <input
+            matInput
+            formControlName="margemLucro"
+            suffix="%"
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Preço Final de Venda</mat-label>
+          <input
+            matInput
+            formControlName="precoFinalVenda"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Data de Vencimento</mat-label>
+          <input matInput formControlName="dataVencimento" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Código de Barras</mat-label>
+          <input matInput formControlName="codigoBarras" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="title-page-section">
+      <h3 class="title-page-section">Estoque</h3>
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Quantidade Disponível</mat-label>
+          <input matInput formControlName="quantidadeDisponivel" mask="0*" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Quantidade Mínima</mat-label>
+          <input matInput formControlName="quantidadeMinima" mask="0*" />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

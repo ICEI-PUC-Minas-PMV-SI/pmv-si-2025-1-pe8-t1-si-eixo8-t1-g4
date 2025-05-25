@@ -1,0 +1,29 @@
+@use "../../../styles.scss";
+
+.cell-nome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+
+  .icon-visualizacao-pets {
+    color: styles.$color-secondary-500;
+    cursor: pointer;
+  }
+}
+
+.cell-celular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 15px;
+
+  .icon-whatsapp {
+    color: #128c7e;
+    cursor: pointer;
+  }
+}
+
+.mat-column-celular {
+  width: 20%;
+}

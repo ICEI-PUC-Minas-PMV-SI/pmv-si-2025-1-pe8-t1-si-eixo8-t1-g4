@@ -1,0 +1,188 @@
+<app-title-page
+  [title]="titlePage"
+  subtitle="Preencha os campos e clique em salvar."
+  [buttons]="buttonsTitlePage"
+  (buttonSaveEvent)="salvar()"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <div>
+    <form [formGroup]="vacinacaoForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Cliente</mat-label>
+          <input
+            matInput
+            [formControl]="clienteFiltroControl"
+            [matAutocomplete]="autoCliente"
+            placeholder="Digite para pesquisar o cliente"
+          />
+          <mat-autocomplete
+            #autoCliente="matAutocomplete"
+            (optionSelected)="clienteSelecionado($event.option.value)"
+            [displayWith]="displayClienteFn"
+          >
+            <mat-option
+              *ngFor="let cliente of clienteListFiltrado$ | async"
+              [value]="cliente"
+            >
+              {{ cliente.descricao }}
+            </mat-option>
+          </mat-autocomplete>
+
+          @if(vacinacaoForm.get('idCliente')?.hasError('required') &&
+          vacinacaoForm.get('idCliente')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Pet</mat-label>
+          <input
+            matInput
+            [formControl]="petFiltroControl"
+            [matAutocomplete]="autoPet"
+            placeholder="Selecione o cliente e digite para pesquisar o pet"
+          />
+          <mat-autocomplete
+            #autoPet="matAutocomplete"
+            (optionSelected)="petSelecionado($event.option.value)"
+            [displayWith]="displayPetFn"
+          >
+            <mat-option
+              *ngFor="let pet of petListFiltrado$ | async"
+              [value]="pet"
+            >
+              {{ pet.descricao }}
+            </mat-option>
+          </mat-autocomplete>
+
+          @if(vacinacaoForm.get('idPet')?.hasError('required') &&
+          vacinacaoForm.get('idPet')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <mat-accordion [multi]="false">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados de Vacinação </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let vacinaFormGroup of vacinaFormGroupList; let i = index">
+        <mat-expansion-panel expanded="true" disabled="true" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span> Vacina {{ i + 1 }} </span>
+              <button mat-mini-fab type="button" (click)="excluirVacina(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="vacinaFormGroup">
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>*Nome</mat-label>
+                <input
+                  matInput
+                  formControlName="nome"
+                  placeholder="Digite o nome da vacina"
+                />
+
+                @if(vacinaFormGroup.get('nome')?.hasError('required') &&
+                vacinaFormGroup.get('nome')?.touched) {
+                <mat-hint>Campo obrigatório</mat-hint> }
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Observações</mat-label>
+                <input
+                  matInput
+                  formControlName="observacoes"
+                  placeholder="Digite alguma observação"
+                />
+
+                @if(vacinaFormGroup.get('observacoes')?.hasError('required') &&
+                vacinaFormGroup.get('observacoes')?.touched) {
+                <mat-hint>Campo obrigatório</mat-hint> }
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>*Data de Aplicação</mat-label>
+                <input
+                  matInput
+                  formControlName="dataAplicacao"
+                  [matDatepicker]="dataAplicacao"
+                  placeholder="Selecione a data de aplicação"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="dataAplicacao"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dataAplicacao></mat-datepicker>
+                @if(vacinaFormGroup.get('dataAplicacao')?.hasError('required')
+                && vacinaFormGroup.get('dataAplicacao')?.touched) {
+                <mat-hint>Campo obrigatório</mat-hint>}
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Data da Próxima Dose</mat-label>
+                <input
+                  matInput
+                  formControlName="dataProximaDose"
+                  [matDatepicker]="dataProximaDose"
+                  placeholder="Selecione a data da próxima dose"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="dataProximaDose"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dataProximaDose></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </form>
+        </mat-expansion-panel>
+        <br />
+      </div>
+
+      <button mat-fab extended type="button" (click)="adicionarVacina()">
+        <mat-icon>add</mat-icon>Adicionar vacina
+      </button>
+    </mat-expansion-panel>
+    <br />
+  </mat-accordion>
+</div>

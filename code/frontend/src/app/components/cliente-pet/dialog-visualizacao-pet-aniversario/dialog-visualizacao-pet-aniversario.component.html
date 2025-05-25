@@ -1,0 +1,76 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Pets com Aniversário Próximo</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="nomePet">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef>Idade</th>
+      <td mat-cell *matCellDef="let element">
+        {{ calcularIdadePet(element) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataNascimento">
+      <th mat-header-cell *matHeaderCellDef>Data de Nascimento</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dataNascimento | date : "dd/MM/yyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let element">
+        <span class="cell-cliente">
+          {{ element.nomeCliente }}
+          <br />
+          {{ element.celularCliente | mask : "celular" }}
+          <mat-icon
+            svgIcon="whatsapp"
+            (click)="utilService.redirectToWhatsApp(element.celularCliente)"
+            matTooltip="WhatApp"
+            matTooltipPosition="below"
+            class="icon-whatsapp"
+          ></mat-icon>
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="box-buttons-acoes">
+          <mat-icon
+            (click)="redirectTo('cliente/visualizacao', element.idCliente)"
+            matTooltip="Visualizar"
+            matTooltipPosition="below"
+            >remove_red_eye</mat-icon
+          >
+          <mat-icon
+            (click)="redirectTo('cliente/edicao', element.idCliente)"
+            matTooltip="Editar"
+            matTooltipPosition="below"
+            >edit</mat-icon
+          >
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Nenhum registro encontrado.</td>
+    </tr>
+  </table>
+</body>

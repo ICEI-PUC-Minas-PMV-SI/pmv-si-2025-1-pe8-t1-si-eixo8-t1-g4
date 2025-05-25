@@ -1,0 +1,29 @@
+@use "../../../styles.scss";
+
+.mat-column-nomeCliente {
+  width: 30%;
+}
+.mat-column-valorTotal {
+  width: 20%;
+}
+.mat-column-lucro {
+  width: 20%;
+}
+.mat-column-dataVenda {
+  width: 20%;
+}
+.mat-column-acoes {
+  width: 10%;
+}
+
+.cell-lucro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0 15px;
+
+  .icon-visualizacao-lucro {
+    color: styles.$color-secondary-500;
+    cursor: pointer;
+  }
+}

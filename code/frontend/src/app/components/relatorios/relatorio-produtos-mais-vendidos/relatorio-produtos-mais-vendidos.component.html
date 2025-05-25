@@ -1,0 +1,256 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Ranking de Produtos que Mais Vendem</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="buscarRankingMensal()"
+      class="mat-expansion-panel-produtos"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-produtos">
+        <mat-panel-title>
+          <span> Mês Atual </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <table mat-table [dataSource]="produtosMensal">
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nomeProduto">
+            <th mat-header-cell *matHeaderCellDef>Produto</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.nomeProduto }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantidadeVendida">
+            <th mat-header-cell *matHeaderCellDef>Vendidos</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.quantidadeVendida }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let produto">
+              <div class="box-buttons-acoes">
+                <mat-icon
+                  (click)="
+                    redirectToVisualizacaoProduto(
+                      'produto/visualizacao',
+                      produto.idProduto
+                    )
+                  "
+                  matTooltip="Visualizar"
+                  matTooltipPosition="below"
+                  >remove_red_eye</mat-icon
+                >
+              </div>
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'index',
+              'nomeProduto',
+              'quantidadeVendida',
+              'acoes'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: ['index', 'nomeProduto', 'quantidadeVendida', 'acoes']
+            "
+          ></tr>
+        </table>
+
+        <button
+          mat-raised-button
+          color="primary"
+          *ngIf="!mostrarTodosMensal"
+          (click)="expandirRankingMensal()"
+          class="button-expandir-ranking"
+        >
+          Expandir Ranking
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="buscarRankingAnual()"
+      class="mat-expansion-panel-produtos"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-produtos">
+        <mat-panel-title>
+          <span> Ano Atual </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <table mat-table [dataSource]="produtosAnual">
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nomeProduto">
+            <th mat-header-cell *matHeaderCellDef>Produto</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.nomeProduto }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantidadeVendida">
+            <th mat-header-cell *matHeaderCellDef>Vendidos</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.quantidadeVendida }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let produto">
+              <div class="box-buttons-acoes">
+                <mat-icon
+                  (click)="
+                    redirectToVisualizacaoProduto(
+                      'produto/visualizacao',
+                      produto.idProduto
+                    )
+                  "
+                  matTooltip="Visualizar"
+                  matTooltipPosition="below"
+                  >remove_red_eye</mat-icon
+                >
+              </div>
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'index',
+              'nomeProduto',
+              'quantidadeVendida',
+              'acoes'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: ['index', 'nomeProduto', 'quantidadeVendida', 'acoes']
+            "
+          ></tr>
+        </table>
+
+        <button
+          mat-raised-button
+          color="primary"
+          *ngIf="!mostrarTodosAnual"
+          (click)="expandirRankingAnual()"
+          class="button-expandir-ranking"
+        >
+          Expandir Ranking
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="buscarRankingGeral()"
+      class="mat-expansion-panel-produtos"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-produtos">
+        <mat-panel-title>
+          <span> Todo o Período </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <table mat-table [dataSource]="produtosGeral">
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nomeProduto">
+            <th mat-header-cell *matHeaderCellDef>Produto</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.nomeProduto }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantidadeVendida">
+            <th mat-header-cell *matHeaderCellDef>Vendidos</th>
+            <td mat-cell *matCellDef="let produto">
+              {{ produto.quantidadeVendida }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let produto">
+              <div class="box-buttons-acoes">
+                <mat-icon
+                  (click)="
+                    redirectToVisualizacaoProduto(
+                      'produto/visualizacao',
+                      produto.idProduto
+                    )
+                  "
+                  matTooltip="Visualizar"
+                  matTooltipPosition="below"
+                  >remove_red_eye</mat-icon
+                >
+              </div>
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="[
+              'index',
+              'nomeProduto',
+              'quantidadeVendida',
+              'acoes'
+            ]"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="
+              let row;
+              columns: ['index', 'nomeProduto', 'quantidadeVendida', 'acoes']
+            "
+          ></tr>
+        </table>
+
+        <button
+          mat-raised-button
+          color="primary"
+          *ngIf="!mostrarTodosGeral"
+          (click)="expandirRankingGeral()"
+          class="button-expandir-ranking"
+        >
+          Expandir Ranking
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</body>

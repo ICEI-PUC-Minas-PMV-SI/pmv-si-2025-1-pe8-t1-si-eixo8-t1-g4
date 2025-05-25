@@ -1,0 +1,20 @@
+@use "../../../styles.scss";
+
+.mat-column-nomePet {
+  width: 35%;
+}
+.mat-column-nomeCliente {
+  width: 35%;
+}
+.mat-column-dataProximaVacinacao {
+  width: 20%;
+}
+.mat-column-acoes {
+  width: 10%;
+}
+
+.icon-whatsapp {
+  color: #128c7e !important;
+  width: 22px;
+  cursor: pointer;
+}

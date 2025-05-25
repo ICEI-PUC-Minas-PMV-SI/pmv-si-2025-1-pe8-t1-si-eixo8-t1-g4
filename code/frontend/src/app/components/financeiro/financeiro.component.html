@@ -1,0 +1,236 @@
+<mat-card>
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel
+      expanded="true"
+      (opened)="buscarDadosFinanceiroDiario()"
+      class="mat-expansion-panel-financeiro"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-financeiro">
+        <mat-panel-title>
+          <span> Resumo Financeiro Diário </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="voltarDia()">
+          <mat-icon matTooltip="Dia Anterior" matTooltipPosition="below"
+            >chevron_left</mat-icon
+          >
+        </button>
+        <span class="mes-label">{{
+          dataSelecionada | date : "dd/MM/yyyy"
+        }}</span>
+        <button mat-icon-button (click)="avancarDia()">
+          <mat-icon matTooltip="Próximo Dia" matTooltipPosition="below"
+            >chevron_right</mat-icon
+          >
+        </button>
+      </mat-toolbar>
+
+      <div class="resumos-container">
+        <mat-card>
+          <h3>Resumo diário</h3>
+          <p>
+            <span class="text-label">Vendas:</span>
+            {{ resumoFinanceiroDiario?.totalVendas }}
+          </p>
+          <p>
+            <span class="text-label">Total vendido:</span>
+            {{ resumoFinanceiroDiario?.totalValorVendas | currency : "BRL" }}
+          </p>
+          <p>
+            <span class="text-label">Lucro:</span>
+            {{ resumoFinanceiroDiario?.totalLucro | currency : "BRL" }}
+          </p>
+        </mat-card>
+      </div>
+
+      <div class="indicadores-extras">
+        <mat-card>
+          <h3>Ticket médio diário</h3>
+          <p>{{ ticketMedioDiario | currency : "BRL" }}</p>
+        </mat-card>
+
+        <mat-card>
+          <h3>Margem de lucro diário</h3>
+          <p>
+            {{ margemLucroDiario / 100 | percent : "1.2-2" }}
+          </p>
+        </mat-card>
+
+        <mat-card>
+          <h3>Faturamento diário</h3>
+          <p>
+            <span class="text-label">Bruto:</span>
+            {{ faturamentoBrutoDiario | currency : "BRL" }}
+          </p>
+          <p>
+            <span class="text-label">Líquido:</span>
+            {{ faturamentoLiquidoDiario | currency : "BRL" }}
+          </p>
+        </mat-card>
+
+        <mat-card *ngIf="variacaoFaturamentoDiario !== null">
+          <h3>Comparativo com dia anterior</h3>
+          <p
+            [ngClass]="{
+              positivo: variacaoFaturamentoDiario >= 0,
+              negativo: variacaoFaturamentoDiario < 0
+            }"
+          >
+            {{ variacaoFaturamentoDiario >= 0 ? "+" : ""
+            }}{{ variacaoFaturamentoDiario }}%
+          </p>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      (opened)="buscarDadosFinanceiroMensal()"
+      class="mat-expansion-panel-financeiro"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-financeiro">
+        <mat-panel-title>
+          <span> Resumo Financeiro Mensal </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="voltarMes()">
+          <mat-icon matTooltip="Mês Anterior" matTooltipPosition="below"
+            >chevron_left</mat-icon
+          >
+        </button>
+        <span class="mes-label">{{
+          dataSelecionada | date : "MMMM yyyy"
+        }}</span>
+        <button mat-icon-button (click)="avancarMes()">
+          <mat-icon matTooltip="Próximo Mês" matTooltipPosition="below"
+            >chevron_right</mat-icon
+          >
+        </button>
+      </mat-toolbar>
+
+      <div class="resumos-container">
+        <mat-card>
+          <h3>Resumo mensal</h3>
+          <p>
+            <span class="text-label">Vendas:</span>
+            {{ resumoFinanceiroMensal?.totalVendas }}
+          </p>
+          <p>
+            <span class="text-label">Total vendido:</span>
+            {{ resumoFinanceiroMensal?.totalValorVendas | currency : "BRL" }}
+          </p>
+          <p>
+            <span class="text-label">Lucro:</span>
+            {{ resumoFinanceiroMensal?.totalLucro | currency : "BRL" }}
+          </p>
+        </mat-card>
+
+        <mat-card>
+          <h3>Resumo anual</h3>
+          <p>
+            <span class="text-label">Vendas:</span>
+            {{ resumoFinanceiroMensal?.acumuladoAno?.totalVendasAno }}
+          </p>
+          <p>
+            <span class="text-label">Total vendido:</span>
+            {{
+              resumoFinanceiroMensal?.acumuladoAno?.totalValorVendasAno
+                | currency : "BRL"
+            }}
+          </p>
+          <p>
+            <span class="text-label">Lucro:</span>
+            {{
+              resumoFinanceiroMensal?.acumuladoAno?.totalLucroAno
+                | currency : "BRL"
+            }}
+          </p>
+        </mat-card>
+      </div>
+
+      <div class="indicadores-extras">
+        <mat-card>
+          <h3>Ticket médio mensal</h3>
+          <p>{{ ticketMedioMensal | currency : "BRL" }}</p>
+        </mat-card>
+
+        <mat-card>
+          <h3>Margem de lucro mensal</h3>
+          <p>
+            {{ margemLucroMensal / 100 | percent : "1.2-2" }}
+          </p>
+        </mat-card>
+
+        <mat-card>
+          <h3>Faturamento mensal</h3>
+          <p>
+            <span class="text-label">Bruto:</span>
+            {{ faturamentoBrutoMensal | currency : "BRL" }}
+          </p>
+          <p>
+            <span class="text-label">Líquido:</span>
+            {{ faturamentoLiquidoMensal | currency : "BRL" }}
+          </p>
+        </mat-card>
+
+        <mat-card *ngIf="variacaoFaturamentoMensal !== null">
+          <h3>Comparativo com mês anterior</h3>
+          <p
+            [ngClass]="{
+              positivo: variacaoFaturamentoMensal >= 0,
+              negativo: variacaoFaturamentoMensal < 0
+            }"
+          >
+            {{ variacaoFaturamentoMensal >= 0 ? "+" : ""
+            }}{{ variacaoFaturamentoMensal }}%
+          </p>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      (opened)="buscarDadosGraficoFaturamento()"
+      class="mat-expansion-panel-financeiro"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-financeiro">
+        <mat-panel-title>
+          <span> Gráfico de Faturamento Anual</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-card>
+        <canvas
+          baseChart
+          [data]="lineChartDataFaturamento"
+          [options]="lineChartOptions"
+          chartType="line"
+        >
+        </canvas>
+      </mat-card>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      (opened)="buscarDadosGraficoFaturamento()"
+      class="mat-expansion-panel-financeiro"
+    >
+      <mat-expansion-panel-header class="mat-expansion-panel-header-financeiro">
+        <mat-panel-title>
+          <span> Gráfico de Lucro Anual </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-card>
+        <canvas
+          baseChart
+          [data]="lineChartDataLucro"
+          [options]="lineChartOptions"
+          [type]="'line'"
+        >
+        </canvas>
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>

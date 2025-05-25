@@ -1,0 +1,262 @@
+<app-title-page
+  [title]="titlePage"
+  subtitle="Preencha os campos e clique em salvar."
+  [buttons]="buttonsTitlePage"
+  (buttonSaveEvent)="salvar()"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <form [formGroup]="produtoForm">
+    <div>
+      <h3 class="title-page-section">Produto</h3>
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Nome</mat-label>
+          <input
+            matInput
+            appInputSanitizer
+            formControlName="nome"
+            placeholder="Digite o nome"
+          />
+
+          @if(produtoForm.get('nome')?.hasError('required') &&
+          produtoForm.get('nome')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Categoria</mat-label>
+          <mat-select
+            formControlName="idCategoria"
+            placeholder="Selecione a categoria"
+          >
+            @for (categoriaProduto of categoriaProdutoList; track
+            categoriaProduto) {
+            <mat-option [value]="categoriaProduto.id">{{
+              categoriaProduto.descricao
+            }}</mat-option>
+            }
+          </mat-select>
+
+          @if(produtoForm.get('idCategoria')?.hasError('required') &&
+          produtoForm.get('idCategoria')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>*Quantidade por Medida</mat-label>
+          <input
+            matInput
+            formControlName="quantidadePorMedida"
+            mask="0*"
+            placeholder="Digite a quantidade por medida"
+            (input)="preencherCampoMedidaCompleta()"
+          />
+
+          @if(produtoForm.get('quantidadePorMedida')?.hasError('required') &&
+          produtoForm.get('quantidadePorMedida')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>*Unidade de Medida</mat-label>
+          <mat-select
+            formControlName="idUnidadeMedida"
+            placeholder="Selecione a unidade de medida"
+            (selectionChange)="preencherCampoMedidaCompleta()"
+          >
+            @for (unidadeMedida of unidadeMedidaList; track unidadeMedida) {
+            <mat-option [value]="unidadeMedida.id">{{
+              unidadeMedida.descricao
+            }}</mat-option>
+            }
+          </mat-select>
+
+          @if(produtoForm.get('idUnidadeMedida')?.hasError('required') &&
+          produtoForm.get('idUnidadeMedida')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Medida Completa</mat-label>
+          <input matInput formControlName="medidaCompleta" />
+
+          @if(produtoForm.get('medidaCompleta')?.hasError('required') &&
+          produtoForm.get('medidaCompleta')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>*Preço de Custo</mat-label>
+          <input
+            matInput
+            formControlName="precoCusto"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+            placeholder="Digite o preço de custo"
+            (input)="calcularPrecoVenda()"
+          />
+
+          @if(produtoForm.get('precoCusto')?.hasError('required') &&
+          produtoForm.get('precoCusto')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+        >
+          <mat-label>*Margem de Lucro (%)</mat-label>
+          <input
+            matInput
+            formControlName="margemLucro"
+            suffix="%"
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+            placeholder="Digite a margem de lucro desejada"
+            (input)="calcularPrecoVenda()"
+          />
+
+          @if(produtoForm.get('margemLucro')?.hasError('required') &&
+          produtoForm.get('margemLucro')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Preço Final de Venda</mat-label>
+          <input
+            matInput
+            formControlName="precoFinalVenda"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+          />
+
+          @if(produtoForm.get('precoFinalVenda')?.hasError('required') &&
+          produtoForm.get('precoFinalVenda')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Data de Vencimento</mat-label>
+          <input
+            matInput
+            formControlName="dataVencimento"
+            [matDatepicker]="dataVencimento"
+            placeholder="Selecione a data de vencimento"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="dataVencimento"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #dataVencimento></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Código de Barras</mat-label>
+          <input
+            matInput
+            formControlName="codigoBarras"
+            placeholder="Digite o código de barras"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div>
+      <h3 class="title-page-section">Estoque</h3>
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Quantidade Disponível</mat-label>
+          <input
+            matInput
+            formControlName="quantidadeDisponivel"
+            mask="0*"
+            placeholder="Digite a quantidade inicial disponível no estoque"
+          />
+
+          @if(produtoForm.get('quantidadeDisponivel')?.hasError('required') &&
+          produtoForm.get('quantidadeDisponivel')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Quantidade Mínima</mat-label>
+          <input
+            matInput
+            formControlName="quantidadeMinima"
+            mask="0*"
+            placeholder="Digite a quantidade mínima no estoque"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,2 @@
+ALTER TABLE PRODUTO
+ADD COLUMN data_vencimento DATE;

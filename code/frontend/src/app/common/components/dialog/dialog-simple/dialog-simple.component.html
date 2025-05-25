@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+<mat-dialog-content> {{ message }} </mat-dialog-content>
+<mat-dialog-actions>
+  @if(labelButton2 !== "") {
+  <button mat-button mat-dialog-close (click)="onCancel()">
+    {{ labelButton2 }}
+  </button>
+  }
+  <button mat-button (click)="onConfirm()">{{ labelButton1 }}</button>
+</mat-dialog-actions>

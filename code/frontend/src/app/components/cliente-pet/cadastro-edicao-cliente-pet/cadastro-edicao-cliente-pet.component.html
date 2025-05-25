@@ -1,0 +1,412 @@
+<app-title-page
+  [title]="titlePage"
+  subtitle="Preencha os campos e clique em salvar."
+  [buttons]="buttonsTitlePage"
+  (buttonSaveEvent)="salvar()"
+  (buttonRedirectEvent)="utilService.redirectTo($event)"
+>
+</app-title-page>
+
+<div>
+  <mat-accordion [multi]="false">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados do Cliente </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <form [formGroup]="clienteForm">
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>*Nome</mat-label>
+              <input
+                matInput
+                formControlName="nome"
+                placeholder="Digite o nome do cliente"
+              />
+
+              @if(clienteForm.get('nome')?.hasError('required') &&
+              clienteForm.get('nome')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>*CPF</mat-label>
+              <input
+                matInput
+                formControlName="cpf"
+                mask="000.000.000-00"
+                placeholder="Digite o CPF do cliente"
+                (change)="verificarClienteCadastrado()"
+              />
+
+              @if(clienteForm.get('cpf')?.hasError('required') &&
+              clienteForm.get('cpf')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>E-mail</mat-label>
+              <input
+                matInput
+                formControlName="email"
+                placeholder="Digite o e-mail do cliente"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Número de Celular</mat-label>
+              <input
+                matInput
+                formControlName="celular"
+                mask="(00) 00000-0000"
+                placeholder="Digite o número de celular do cliente"
+              />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Data de Nascimento</mat-label>
+              <input
+                matInput
+                formControlName="dataNascimento"
+                [matDatepicker]="dataNascimento"
+                placeholder="Selecione a data de nascimento do cliente"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="dataNascimento"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #dataNascimento></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>Gênero</mat-label>
+              <mat-select
+                formControlName="genero"
+                placeholder="Selecione o gênero"
+              >
+                <mat-option value="Masculino">Masculino</mat-option>
+                <mat-option value="Feminino">Feminino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+
+        <form [formGroup]="enderecoForm">
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+            >
+              <mat-label>*CEP</mat-label>
+              <input
+                matInput
+                formControlName="cep"
+                mask="00000-000"
+                placeholder="Digite o CEP"
+              />
+              <mat-icon
+                matIconSuffix
+                (click)="consultarCep()"
+                style="cursor: pointer"
+              >
+                search
+              </mat-icon>
+
+              @if(enderecoForm.get('cep')?.hasError('required') &&
+              enderecoForm.get('cep')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+            >
+              <mat-label>*Logradouro</mat-label>
+              <input
+                matInput
+                formControlName="logradouro"
+                placeholder="Digite o logradouro"
+              />
+
+              @if(enderecoForm.get('logradouro')?.hasError('required') &&
+              enderecoForm.get('logradouro')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-1 col-lg-1 col-md-6 col-sm-12"
+            >
+              <mat-label>Nº</mat-label>
+              <input matInput formControlName="numero" placeholder="Nº" />
+
+              @if(enderecoForm.get('numero')?.hasError('required') &&
+              enderecoForm.get('numero')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+
+            <mat-checkbox
+              [checked]="enderecoSemNumero"
+              (change)="checkSemNumero()"
+              formControlName="semNumero"
+              class="col-1"
+              >S/N</mat-checkbox
+            >
+
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+            >
+              <mat-label>Complemento</mat-label>
+              <input
+                matInput
+                formControlName="complemento"
+                placeholder="Digite o complemento"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-12"
+            >
+              <mat-label>*Bairro</mat-label>
+              <input
+                matInput
+                formControlName="bairro"
+                placeholder="Digite o bairro"
+              />
+
+              @if(enderecoForm.get('bairro')?.hasError('required') &&
+              enderecoForm.get('bairro')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-12"
+            >
+              <mat-label>*Cidade</mat-label>
+              <input
+                matInput
+                formControlName="cidade"
+                placeholder="Digite a cidade"
+              />
+
+              @if(enderecoForm.get('cidade')?.hasError('required') &&
+              enderecoForm.get('cidade')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              floatLabel="always"
+              hideRequiredMarker
+              class="col-2"
+            >
+              <mat-label>*UF</mat-label>
+              <input matInput formControlName="uf" placeholder="Digite a UF" />
+
+              @if(enderecoForm.get('uf')?.hasError('required') &&
+              enderecoForm.get('uf')?.touched) {
+              <mat-hint>Campo obrigatório</mat-hint> }
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </mat-expansion-panel>
+
+    <br />
+
+    <mat-expansion-panel expanded="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Dados dos Pets </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let petFormGroup of petFormGroupList; let i = index">
+        <mat-expansion-panel expanded="true" disabled="true" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span> Pet {{ i + 1 }} </span>
+              <button mat-mini-fab type="button" (click)="removerPet(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form [formGroup]="petFormGroup">
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Nome</mat-label>
+                <input
+                  matInput
+                  formControlName="nome"
+                  placeholder="Digite o nome do pet"
+                />
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+              >
+                <mat-label>Data de Nascimento</mat-label>
+                <input
+                  matInput
+                  formControlName="dataNascimento"
+                  [matDatepicker]="dataNascimentoPet"
+                  placeholder="Selecione a data de nascimento do pet"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="dataNascimentoPet"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dataNascimentoPet></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Tipo</mat-label>
+                <mat-select
+                  formControlName="idTipo"
+                  placeholder="Selecione o tipo do pet"
+                  (selectionChange)="tipoPetSelecionado(petFormGroup, i)"
+                >
+                  @for (tipo of tipoPetList; track tipo) {
+                  <mat-option [value]="tipo.id">
+                    {{ tipo.descricao }}
+                  </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Raça</mat-label>
+                <input
+                  matInput
+                  [formControl]="racaPetFiltroControlList[i]"
+                  [matAutocomplete]="autoRacaPet"
+                  placeholder="Digite para pesquisar a raça do pet"
+                />
+                <mat-autocomplete
+                  #autoRacaPet="matAutocomplete"
+                  (optionSelected)="
+                    racaPetSelecionado($event.option.value, petFormGroup, i)
+                  "
+                  [displayWith]="displayRacaPetFn"
+                >
+                  <mat-option
+                    *ngFor="let raca of racaPetListFiltradoList$[i] | async"
+                    [value]="raca"
+                  >
+                    {{ raca.descricao }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Porte</mat-label>
+                <mat-select
+                  formControlName="idPorte"
+                  placeholder="Selecione o porte do pet"
+                >
+                  @for (porte of portePetList; track porte) {
+                  <mat-option [value]="porte.id">
+                    {{ porte.descricao }}
+                  </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field
+                appearance="outline"
+                floatLabel="always"
+                hideRequiredMarker
+                class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+              >
+                <mat-label>Peso</mat-label>
+                <input
+                  matInput
+                  formControlName="peso"
+                  suffix=" kg"
+                  mask="separator.2"
+                  thousandSeparator="."
+                  decimalMarker=","
+                  placeholder="Digite o peso do pet"
+                />
+              </mat-form-field>
+            </div>
+          </form>
+        </mat-expansion-panel>
+        <br />
+      </div>
+
+      <button
+        mat-fab
+        extended
+        type="button"
+        (click)="adicionarPet(null)"
+        class="btn-adicionar-pet"
+      >
+        <mat-icon>add</mat-icon>Adicionar Pet
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

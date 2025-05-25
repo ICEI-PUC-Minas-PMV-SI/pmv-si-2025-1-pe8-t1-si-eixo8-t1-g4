@@ -1,0 +1,74 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">{{ titleDialog }}</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="nomePet">
+      <th mat-header-cell *matHeaderCellDef>Nome do Pet</th>
+      <td mat-cell *matCellDef="let element">{{ element.pet.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeCliente">
+      <th mat-header-cell *matHeaderCellDef>Nome do Cliente</th>
+      <td mat-cell *matCellDef="let element">{{ element.cliente.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="celularCliente">
+      <th mat-header-cell *matHeaderCellDef>Celular do Cliente</th>
+      <td mat-cell *matCellDef="let element">
+        <span class="cell-celular">
+          {{ element.cliente.celular | mask : "celular" }}
+          <mat-icon
+            svgIcon="whatsapp"
+            (click)="utilService.redirectToWhatsApp(element.cliente.celular)"
+            matTooltip="WhatApp"
+            matTooltipPosition="below"
+            class="icon-whatsapp"
+          ></mat-icon>
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataProximaVacinacao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Data da Próxima Vacinação
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dataProximaDose | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="box-buttons-acoes">
+          <mat-icon
+            (click)="redirectTo('vacinacao/visualizacao', element.pet.id)"
+            matTooltip="Visualizar"
+            matTooltipPosition="below"
+            >remove_red_eye</mat-icon
+          >
+          <mat-icon
+            (click)="redirectTo('vacinacao/edicao', element.pet.id)"
+            matTooltip="Editar"
+            matTooltipPosition="below"
+            >edit</mat-icon
+          >
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Nenhum registro encontrado.</td>
+    </tr>
+  </table>
+</body>

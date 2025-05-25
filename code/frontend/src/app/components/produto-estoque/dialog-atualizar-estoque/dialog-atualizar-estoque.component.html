@@ -1,0 +1,73 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Atualizar Estoque</h1>
+    </div>
+    <div class="box-buttons">
+      <button mat-flat-button (click)="salvar()" class="button-primary">
+        Salvar
+      </button>
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div>
+    <form [formGroup]="produtoForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Nome do Produto</mat-label>
+          <input matInput formControlName="nomeProduto" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Medida</mat-label>
+          <input matInput formControlName="medida" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>*Quantidade Disponível</mat-label>
+          <input
+            matInput
+            formControlName="quantidadeDisponivel"
+            mask="0*"
+            placeholder="Digite a quantidade disponível no estoque"
+          />
+
+          @if(produtoForm.get('quantidadeDisponivel')?.hasError('required') &&
+          produtoForm.get('quantidadeDisponivel')?.touched) {
+          <mat-hint>Campo obrigatório</mat-hint> }
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          hideRequiredMarker
+          class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+        >
+          <mat-label>Quantidade Mínima</mat-label>
+          <input
+            matInput
+            formControlName="quantidadeMinima"
+            mask="0*"
+            placeholder="Digite a quantidade mínima no estoque"
+          />
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</body>

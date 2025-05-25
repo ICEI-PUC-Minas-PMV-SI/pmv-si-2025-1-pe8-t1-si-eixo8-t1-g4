@@ -1,0 +1,445 @@
+/* ========================================= Variáveis ========================================= */
+
+/* Paleta de cores */
+
+/* OBS.: A variação 500 é comumente a mais usada */
+
+// $color-primary-900:
+// $color-primary-800:
+// $color-primary-700:
+// $color-primary-600:
+$color-primary-500: #1954a4;
+// $color-primary-400:
+$color-primary-300: #3984c0;
+// $color-primary-200:
+//$color-primary-100:
+
+// $color-secondary-900:
+// $color-secondary-800:
+// $color-secondary-700:
+// $color-secondary-600:
+$color-secondary-500: #a46919;
+// $color-secondary-400:
+// $color-secondary-300:
+// $color-secondary-200:
+// $color-secondary-100:
+
+// $color-tertiary-900:
+// $color-tertiary-800:
+// $color-tertiary-700:
+// $color-tertiary-600:
+$color-tertiary-500: #3010e6;
+// $color-tertiary-400:
+// $color-tertiary-200:
+// $color-tertiary-100:
+
+// $color-quaternary-900:
+// $color-quaternary-800:
+// $color-quaternary-700:
+// $color-quaternary-600:
+$color-quaternary-500: #e2766f;
+//$color-quaternary-400:
+// $color-quaternary-300:
+// $color-quaternary-200:
+// $color-quaternary-100:
+
+$color-neutral-900: #2c2c2c;
+$color-neutral-800: #323233;
+$color-neutral-700: #4b4b4b;
+$color-neutral-600: #676767;
+$color-neutral-500: #808080;
+$color-neutral-400: #86848b;
+$color-neutral-300: #b6b6b6;
+$color-neutral-200: #cccccc;
+$color-neutral-100: #f6f6f6;
+
+$color-success: #046632;
+$color-success-border: #19d52c;
+$color-warning: #7a5407;
+$color-warning-border: #ffcd29;
+$color-error: #7a072f;
+$color-error-border: #ff2626;
+$color-info: #00335e;
+$color-info-border: #04a9c4;
+
+$color-background-primary: #f8f9fa;
+$color-background-primary-hover: #f0f0f0;
+$color-background-secondary: #3c90e4;
+$color-background-secondary-hover: #0e7ceb;
+
+/* Fontes */
+$font-title: normal normal normal 28px / 1.5 Roboto-SemiBold, sans-serif;
+$font-subtitle: normal normal normal 20px / 1.5 Roboto-Regular, sans-serif;
+$font-section: normal normal normal 20px / 1.5 Roboto-Bold, sans-serif;
+
+$font-modal-title: normal normal normal 32px / normal Roboto-Medium, sans-serif;
+$font-modal-message: normal normal normal 24px / normal Roboto-Regular,
+  sans-serif;
+
+$font-text-xlarge-900: normal normal normal 22px / normal Roboto-Black,
+  sans-serif;
+$font-text-xlarge-600: normal normal normal 22px / normal Roboto-SemiBold,
+  sans-serif;
+$font-text-xlarge-500: normal normal normal 22px / normal Roboto-Medium,
+  sans-serif;
+$font-text-xlarge-400: normal normal normal 22px / normal Roboto-Regular,
+  sans-serif;
+$font-text-xlarge-300: normal normal normal 22px / normal Roboto-Light,
+  sans-serif;
+$font-text-xlarge-100: normal normal normal 22px / normal Roboto-Thin,
+  sans-serif;
+
+$font-text-large-900: normal normal normal 18px / normal Roboto-Black,
+  sans-serif;
+$font-text-large-600: normal normal normal 18px / normal Roboto-SemiBold,
+  sans-serif;
+$font-text-large-500: normal normal normal 18px / normal Roboto-Medium,
+  sans-serif;
+$font-text-large-400: normal normal normal 18px / normal Roboto-Regular,
+  sans-serif;
+$font-text-large-300: normal normal normal 18px / normal Roboto-Light,
+  sans-serif;
+$font-text-large-100: normal normal normal 18px / normal Roboto-Thin, sans-serif;
+
+$font-text-medium-900: normal normal normal 16px / normal Roboto-Black,
+  sans-serif;
+$font-text-medium-600: normal normal normal 16px / normal Roboto-SemiBold,
+  sans-serif;
+$font-text-medium-500: normal normal normal 16px / normal Roboto-Medium,
+  sans-serif;
+$font-text-medium-400: normal normal normal 16px / normal Roboto-Regular,
+  sans-serif;
+$font-text-medium-300: normal normal normal 16px / normal Roboto-Light,
+  sans-serif;
+$font-text-medium-100: normal normal normal 16px / normal Roboto-Thin,
+  sans-serif;
+
+$font-text-small-900: normal normal normal 14px / normal Roboto-Black,
+  sans-serif;
+$font-text-small-600: normal normal normal 14px / normal Roboto-SemiBold,
+  sans-serif;
+$font-text-small-500: normal normal normal 14px / normal Roboto-Medium,
+  sans-serif;
+$font-text-small-400: normal normal normal 14px / normal Roboto-Regular,
+  sans-serif;
+$font-text-small-300: normal normal normal 14px / normal Roboto-Light,
+  sans-serif;
+$font-text-small-100: normal normal normal 14px / normal Roboto-Thin, sans-serif;
+
+$font-text-xsmall-900: normal normal normal 12px / normal Roboto-Black,
+  sans-serif;
+$font-text-xsmall-600: normal normal normal 12px / normal Roboto-SemiBold,
+  sans-serif;
+$font-text-xsmall-500: normal normal normal 12px / normal Roboto-Medium,
+  sans-serif;
+$font-text-xsmall-400: normal normal normal 12px / normal Roboto-Regular,
+  sans-serif;
+$font-text-xsmall-300: normal normal normal 12px / normal Roboto-Light,
+  sans-serif;
+$font-text-xsmall-100: normal normal normal 12px / normal Roboto-Thin,
+  sans-serif;
+
+$font-mat-expansion-header: normal normal normal 20px / normal Roboto-Medium,
+  sans-serif;
+
+/* Margens e espaçamentos */
+$spacing-unit: 8px;
+$margin-sm: $spacing-unit;
+$margin-md: $spacing-unit * 2;
+$margin-lg: $spacing-unit * 3;
+$padding-sm: $spacing-unit;
+$padding-md: $spacing-unit * 2;
+$padding-lg: $spacing-unit * 3;
+
+/* Bordas */
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+
+/* Sombras */
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+/* ========================================= Padronização ========================================= */
+
+/* Título e subtítulo */
+.title-page {
+  color: $color-primary-500;
+  font: $font-title;
+}
+
+.subtitle-page {
+  color: $color-neutral-600;
+  font: $font-subtitle;
+}
+
+.title-page-section {
+  color: $color-secondary-500;
+  font: $font-section;
+  margin-bottom: 20px;
+}
+
+/* Botões */
+.button-primary {
+  width: 130px;
+  background-color: $color-background-secondary !important;
+  color: $color-neutral-100 !important;
+  padding: $padding-md !important;
+  border-radius: $border-radius-md !important;
+  box-shadow: $box-shadow !important;
+
+  &:hover {
+    background-color: $color-background-secondary-hover !important;
+  }
+}
+
+.button-secondary {
+  width: 130px;
+  background-color: $color-background-primary !important;
+  color: $color-primary-500 !important;
+  padding: $padding-md !important;
+  border-radius: $border-radius-md !important;
+  box-shadow: $box-shadow !important;
+
+  &:hover {
+    background-color: $color-background-primary-hover !important;
+  }
+}
+
+/* Form Field */
+
+.mat-mdc-form-field
+  .mdc-text-field--outlined
+  .mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above {
+  font: $font-text-large-600 !important;
+  color: $color-primary-500;
+}
+
+.mat-mdc-input-element,
+.mat-mdc-select-value-text {
+  color: $color-neutral-900 !important;
+  font: $font-text-large-400 !important;
+}
+
+.mat-mdc-form-field-hint {
+  color: var(
+    --mdc-outlined-text-field-error-label-text-color,
+    var(--mat-sys-error)
+  );
+  font-weight: 500;
+}
+
+input::placeholder,
+.mat-mdc-select-placeholder {
+  color: $color-neutral-600 !important;
+  font: $font-text-small-400 !important;
+}
+
+.mdc-text-field--disabled {
+  background-color: #e7e7e7;
+}
+
+.mat-mdc-form-field-icon-prefix > .mat-icon,
+.mat-mdc-form-field-icon-suffix > .mat-icon {
+  color: $color-primary-300;
+}
+
+/* Checkbox */
+
+.mat-mdc-checkbox label {
+  font: $font-text-large-400 !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background {
+  border-color: $color-primary-300 !important;
+  background-color: $color-primary-300 !important;
+}
+
+/* Datepicker */
+
+.mat-datepicker-toggle .mdc-icon-button {
+  color: $color-primary-300;
+}
+
+/* Table */
+
+.mat-mdc-header-row {
+  color: $color-primary-500 !important;
+  font: $font-text-medium-600 !important;
+}
+
+.mat-mdc-row {
+  color: $color-neutral-900 !important;
+  font: $font-text-medium-400 !important;
+
+  .mat-column-acoes {
+    .box-buttons-acoes {
+      display: flex;
+      gap: 15px;
+    }
+
+    mat-icon {
+      color: $color-primary-300;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Tooltip */
+
+.mat-mdc-tooltip-surface {
+  background-color: $color-background-primary !important;
+  color: $color-primary-500 !important;
+  font: $font-text-medium-600 !important;
+  padding: $padding-md !important;
+  border-radius: $border-radius-md !important;
+  box-shadow: $box-shadow !important;
+}
+
+/* Snackbar */
+
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+  background-color: $color-background-primary !important;
+  padding: 7px !important;
+  border-radius: $border-radius-md !important;
+  box-shadow: $box-shadow !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  color: #a46919 !important;
+  font: $font-text-medium-600 !important;
+}
+
+/* Dialog */
+
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+  max-width: none !important;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: $border-radius-sm !important;
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-title {
+  color: $color-primary-500 !important;
+  font: $font-text-xlarge-600 !important;
+  font-size: 24px !important;
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  color: $color-neutral-900 !important;
+  font: $font-text-large-400 !important;
+}
+
+.mat-mdc-dialog-actions {
+  .mat-mdc-button {
+    font: $font-text-medium-500 !important;
+  }
+
+  .mat-mdc-button:not(:disabled) {
+    color: $color-primary-500 !important;
+  }
+}
+
+/* Expansion Panel */
+.mat-expansion-panel {
+  background: $color-background-primary !important;
+
+  .mat-expansion-panel-header {
+    margin: 5px 0 !important;
+  
+    .mat-expansion-panel-header-title {
+      font: $font-mat-expansion-header;
+      color: $color-primary-500 !important;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .mat-expansion-indicator svg {
+      fill: $color-primary-500 !important;
+    }
+  }
+}
+
+.mat-expansion-panel .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused, .mat-expansion-panel .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused {
+    background: none;
+}
+
+/* Divider */
+.mat-divider {
+  margin-bottom: 30px !important;
+  border-top-color: $color-neutral-200 !important;
+}
+
+/* Gráficos (canvas) */
+.box-grafico-pizza {
+  height: 87% !important;
+  width: 30% !important;
+  margin: 0 auto;
+}
+
+.box-grafico-coluna {
+  max-width: 50% !important;
+  margin: 0 auto;
+}
+
+/* ========================================= Configuração inicial ========================================= */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Bootstrap */
+.row {
+  margin-bottom: 14px;
+}
+
+/* Importação de fontes */
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("./assets/fonts/Roboto/static/Roboto-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("./assets/fonts/Roboto/static/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-SemiBold";
+  src: url("./assets/fonts/Roboto/static/Roboto-SemiBold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("./assets/fonts/Roboto/static/Roboto-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("./assets/fonts/Roboto/static/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("./assets/fonts/Roboto/static/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("./assets/fonts/Roboto/static/Roboto-Thin.ttf") format("truetype");
+}

@@ -1,0 +1,81 @@
+@use "../../../styles.scss";
+
+.mes-label {
+  flex: 1;
+  text-align: center;
+  color: styles.$color-primary-500;
+  font: styles.$font-title;
+  text-transform: uppercase;
+}
+
+.resumos-container,
+.indicadores-extras {
+  display: flex;
+  gap: 15px;
+  margin: 15px 10px;
+
+  mat-card {
+    flex: 1;
+    padding: 10px 20px;
+  }
+
+  h3 {
+    color: styles.$color-primary-500;
+    font: normal normal normal 20px / 1.5 Roboto-Medium, sans-serif;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: styles.$color-neutral-900;
+    font: styles.$font-text-medium-500;
+    margin-bottom: 15px;
+
+    span.text-label {
+      color: styles.$color-neutral-600;
+    }
+  }
+}
+
+.indicadores-extras {
+  flex-wrap: wrap;
+
+  mat-card {
+    flex: 1 1 220px;
+  }
+
+  .positivo {
+    color: green;
+    font-weight: bold;
+  }
+
+  .negativo {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+.mat-mdc-card {
+  background-color: styles.$color-neutral-100;
+}
+
+mat-accordion {
+  margin: 10px;
+
+  mat-expansion-panel.mat-expansion-panel-financeiro {
+    margin: 5px 0 20px;
+
+    mat-expansion-panel-header.mat-expansion-panel-header-financeiro {
+      margin: 0 !important;
+
+      .mat-expansion-panel-header-title {
+        font-size: 22px !important;
+      }
+    }
+  }
+}
+
+::ng-deep
+  mat-expansion-panel.mat-expansion-panel-financeiro
+  .mat-expansion-panel-body {
+  padding: 0 !important;
+}

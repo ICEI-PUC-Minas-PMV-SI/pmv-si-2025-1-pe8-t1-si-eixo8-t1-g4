@@ -1,0 +1,20 @@
+@use "../../../../styles.scss";
+
+button.mdc-fab,
+button.mdc-mini-fab,
+button.mdc-fab:hover,
+button.mdc-mini-fab:hover,
+button.mdc-fab:active,
+button.mdc-mini-fab:active {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  color: styles.$color-primary-500;
+  font: styles.$font-text-medium-500 !important;
+}
+
+.mat-expansion-panel-header-title {
+  margin: 0;
+}

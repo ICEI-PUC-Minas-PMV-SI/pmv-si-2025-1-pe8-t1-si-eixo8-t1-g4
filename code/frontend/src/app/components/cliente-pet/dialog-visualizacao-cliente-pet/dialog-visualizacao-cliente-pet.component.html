@@ -1,0 +1,101 @@
+<body>
+  <div class="box-title-page">
+    <div>
+      <h1 class="title-page">Pets do Cliente</h1>
+    </div>
+    <div class="box-buttons">
+      <mat-icon (click)="fecharDialog()" class="icon-close">close</mat-icon>
+    </div>
+  </div>
+
+  <div *ngFor="let petFormGroup of petFormGroupList; let i = index">
+    <mat-expansion-panel expanded="true" disabled="true" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span> Pet {{ i + 1 }} </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form [formGroup]="petFormGroup">
+        <div class="row">
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+          >
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" />
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+          >
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput formControlName="dataNascimento" />
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+          >
+            <mat-label>Idade</mat-label>
+            <input matInput formControlName="idade" />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+          >
+            <mat-label>Tipo</mat-label>
+            <input matInput formControlName="tipo" />
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+          >
+            <mat-label>Raça</mat-label>
+            <input matInput formControlName="raca" />
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+          >
+            <mat-label>Porte</mat-label>
+            <input matInput formControlName="porte" />
+          </mat-form-field>
+          <mat-form-field
+            appearance="outline"
+            floatLabel="always"
+            hideRequiredMarker
+            class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12"
+          >
+            <mat-label>Peso</mat-label>
+            <input
+              matInput
+              formControlName="peso"
+              suffix=" kg"
+              mask="separator.2"
+              thousandSeparator="."
+              decimalMarker=","
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+    <br />
+  </div>
+
+  @if(petIsNotRegistred) {
+  <p>Este cliente não possui nenhum pet cadastrado.</p>
+  }
+</body>

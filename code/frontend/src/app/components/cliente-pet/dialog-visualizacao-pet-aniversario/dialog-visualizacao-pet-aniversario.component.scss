@@ -1,0 +1,59 @@
+@use "../../../../styles.scss";
+
+body {
+  padding: 20px;
+
+  .box-title-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    .title-page {
+      color: styles.$color-primary-500;
+      font: styles.$font-title;
+    }
+
+    .icon-close {
+      color: styles.$color-primary-500;
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .box-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+.cell-cliente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 15px;
+
+  .icon-whatsapp {
+    color: #128c7e;
+    cursor: pointer;
+  }
+}
+
+.mat-column-nomePet {
+  width: 20%;
+}
+.mat-column-idade {
+  width: 20%;
+}
+.mat-column-dataNascimento {
+  width: 20%;
+}
+.mat-column-cliente {
+  width: 30%;
+}
+.mat-column-acoes {
+  width: 10%;
+}

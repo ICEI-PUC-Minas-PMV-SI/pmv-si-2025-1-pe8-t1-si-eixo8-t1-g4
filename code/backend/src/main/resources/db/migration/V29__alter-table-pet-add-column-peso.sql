@@ -1,0 +1,2 @@
+ALTER TABLE PET
+ADD COLUMN peso DECIMAL(5, 2) NOT NULL AFTER data_nascimento;
