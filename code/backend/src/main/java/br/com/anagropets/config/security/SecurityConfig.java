@@ -29,11 +29,12 @@ public class SecurityConfig {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
-    // ✅ Corrige CORS para aceitar frontend em http://localhost:4200
+    // ✅ Corrige CORS para aceitar frontend em https://localhost:4200 e https://www.anagropets.com.br
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://localhost:4200")); // origem do Angular
+        config.setAllowedOrigins(List.of("https://localhost:4200"));
+        config.setAllowedOrigins(List.of("https://www.anagropets.com.br"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("Set-Cookie"));

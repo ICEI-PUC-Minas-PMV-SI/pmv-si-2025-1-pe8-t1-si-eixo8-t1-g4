@@ -117,7 +117,7 @@ public class FinanceiroService {
 	            BigDecimal lucro = resumo != null ? resumo.getLucroTotal() : BigDecimal.ZERO;
 
 	            String nomeMes = Month.of(mes)
-	                .getDisplayName(TextStyle.SHORT, Locale.of("pt", "BR"));
+	                .getDisplayName(TextStyle.SHORT, new Locale("pt", "BR"));
 
 	            lista.add(new FaturamentoMensalGraficoDTO(nomeMes, total, lucro));
 	        }

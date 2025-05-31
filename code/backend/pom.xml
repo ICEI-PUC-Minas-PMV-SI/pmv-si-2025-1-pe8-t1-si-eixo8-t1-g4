@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>23</java.version>
+		<java.version>17</java.version>
 		<jjwt.version>0.11.5</jjwt.version>
 	</properties>
 	<dependencies>
@@ -119,12 +119,20 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+  		<plugins>
+    		<plugin>
+      			<groupId>org.apache.maven.plugins</groupId>
+      			<artifactId>maven-compiler-plugin</artifactId>
+      			<version>3.11.0</version>
+      			<configuration>
+        			<release>17</release>
+      			</configuration>
+    		</plugin>
+    		<plugin>
+      			<groupId>org.springframework.boot</groupId>
+      			<artifactId>spring-boot-maven-plugin</artifactId>
+    		</plugin>
+  		</plugins>
 	</build>
 
 </project>
