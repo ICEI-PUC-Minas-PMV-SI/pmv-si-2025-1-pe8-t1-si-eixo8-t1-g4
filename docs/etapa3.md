@@ -140,8 +140,27 @@ Os requisitos não funcionais determinam critérios de desempenho, segurança, a
 
 ------------------
 Escolher ferramentas/plataformas.
-Construir Diagrama de caso de uso
-Desenvolver esboço do banco de dados (modelo ER)
+Diagrama de caso de uso
+
+![Diagrama de caso de uso - Gerenciar Clientes](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%201%20-%20Gerenciar%20clientes.png)
+
+![Diagrama de caso de uso - Gerenciar Pet ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%202%20-%20Gerenciar%20pet.png)
+
+![Diagrama de caso de uso - Gerenciar Produtos e Estoque ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%203%20-%20Gerenciar%20produtos%20e%20estoque.png)
+
+![Diagrama de caso de uso - Gerenciar Vendas ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%204%20-%20Gerenciar%20vendas.png)
+
+![Diagrama de caso de uso - Gerenciar Vacinação ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%205%20-%20Controle%20vacinacao.png)
+
+![Diagrama de caso de uso - Financeiro](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%206%20-%20Financeiro.png)
+
+![Diagrama de caso de uso - Relatórios](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%207-%20Relatorios.png)
+
+![Diagrama de caso de uso - Gerenciar Usuário](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%208%20-Gerenciar%20usuario.png)
+
+Esboço do banco de dados (modelo ER)
+![Diagrama de Entidade Relacionamento (DER)- ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/DER_Ana_Agropet.png)
+
 
 
 # 3.3 Protótipo e Planejamento da Arquitetura
@@ -149,6 +168,7 @@ Desenvolver esboço do banco de dados (modelo ER)
 Desenvolver wireframes ou protótipo navegável.
 Planejar a estrutura de navegação do sistema; o fluxo de telas, o armazenamento e acesso aos dados.
 
+![Fluxo de telas - ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Fluxo%20de%20telas.png)
 
 # 3.4 Preparação do Desenvolvimento
 ### Objetivo
