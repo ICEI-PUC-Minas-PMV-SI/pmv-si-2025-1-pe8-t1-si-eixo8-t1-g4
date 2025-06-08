@@ -224,16 +224,93 @@ Este projeto adota um conjunto robusto e moderno de tecnologias para garantir de
 
 ![Diagrama de caso de uso - Gerenciar Usuário](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%208%20-Gerenciar%20usuario.png)
 
-Esboço do banco de dados (modelo ER)
+### Esboço do banco de dados (modelo ER)
+
 ![Diagrama de Entidade Relacionamento (DER)- ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/DER_Ana_Agropet.png)
 
 
 
 # 3.3 Protótipo e Planejamento da Arquitetura
-## -----------
-Desenvolver wireframes ou protótipo navegável.
-Planejar a estrutura de navegação do sistema; o fluxo de telas, o armazenamento e acesso aos dados.
+### Arquitetura do Projeto
 
+A arquitetura da aplicação segue uma abordagem cliente-servidor baseada em camadas, com separação clara entre front-end, back-end e banco de dados. O modelo adotado promove modularidade, reutilização de código, facilidade de testes e manutenção.
+
+#### Diagrama Simplificado
+```
+[ Angular (UI) ]
+      ↓ API REST (HTTP)
+[ Java Spring Boot (Back-end) ]
+      ↓ JPA / Hibernate
+[ MySQL Database ]
+```
+​
+#### Diagrama de Alto Nível
+```
+┌─────────────────────┐
+│     Navegador       │
+│  (Cliente Angular)  │
+└─────────┬───────────┘
+          │ HTTP Requests (JSON)
+          ▼
+┌─────────────────────┐
+│      API REST       │
+│ (Java Spring Boot)  │
+└─────────┬───────────┘
+          │ Camadas Internas
+          ▼
+┌─────────────────────┐
+│   Service Layer     │ ← Lógica de negócio
+├─────────────────────┤
+│ Repository Layer    │ ← Acesso a dados via Hibernate/JPA
+└─────────┬───────────┘
+          │
+          ▼
+┌─────────────────────┐
+│   MySQL Database    │
+└─────────────────────┘
+```
+
+#### Componentes e Responsabilidades
+
+##### Front-end (Angular)
+
+- Responsável por toda a interface com o usuário.
+- Comunica-se com a API via chamadas HTTP REST.
+- Utiliza Angular Material e Bootstrap para UI responsiva.
+- Usa `Chart.js` e `ng2-charts` para visualização de dados.
+- Implementa formulários com `ngx-mask` para validação de entrada.
+
+##### Back-end (Java Spring Boot)
+
+- Exposição de endpoints REST usando `@RestController`.
+- Processamento de requisições e regras de negócio na Service Layer.
+- Integração com o banco de dados através da Repository Layer (JPA).
+- Utiliza DTOs e ModelMapper para separar modelos de domínio dos objetos transportados.
+- Gerencia migrações de banco com Flyway.
+- Documenta automaticamente a API com SpringDoc OpenAPI + Swagger UI.
+
+##### Banco de Dados (MySQL)
+
+- Armazena informações persistentes da aplicação.
+- Estrutura versionada com scripts controlados pelo Flyway.
+- Acesso feito via JPA (Hibernate).
+
+##### Fluxo de Requisição (Exemplo)
+
+1. O usuário interage com a interface (Angular).
+2. O Angular faz uma requisição HTTP (ex: GET `/api/usuarios`).
+3. O Spring Boot recebe a requisição, processa na camada de serviço.
+4. A Service Layer consulta a Repository Layer.
+5. A Repository Layer acessa o banco de dados e retorna os dados.
+6. Os dados são mapeados em DTOs e enviados de volta como JSON.
+7. O front-end renderiza os dados na interface.
+
+### Interface do sistema
+
+
+
+
+### Fluxo de telas
 ![Fluxo de telas - ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Fluxo%20de%20telas.png)
 
 # 3.4 Preparação do Desenvolvimento
