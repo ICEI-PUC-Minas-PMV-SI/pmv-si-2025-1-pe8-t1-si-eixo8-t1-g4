@@ -138,9 +138,75 @@ Os requisitos não funcionais determinam critérios de desempenho, segurança, a
 | RNF03  | A aplicação deve ser responsiva para rodar em dispositivos móveis        | Baixa      |
 | RNF04  | A aplicação deve processar requisições do usuário em no máximo 3 segundos| Baixa      |
 
-------------------
-Escolher ferramentas/plataformas.
-Diagrama de caso de uso
+### Tecnologias e Ferramentas Utilizadas
+
+Este projeto adota um conjunto robusto e moderno de tecnologias para garantir desempenho, escalabilidade e manutenibilidade. A seguir, estão listadas as principais ferramentas, bibliotecas e frameworks utilizados no desenvolvimento do front-end e back-end da aplicação.
+
+#### Front-end
+
+- **TypeScript (v5.7)**
+    
+    Linguagem principal utilizada no desenvolvimento do front-end, proporcionando tipagem estática e recursos avançados para aplicações modernas.
+    
+- **Angular (v19)**
+    
+    Framework base da aplicação front-end, amplamente utilizado para o desenvolvimento de aplicações web escaláveis e com arquitetura modular.
+    
+- **Angular Material (v19)**
+    
+    Biblioteca oficial de componentes UI baseada no Material Design, que oferece uma interface consistente, acessível e responsiva.
+    
+- **Bootstrap (v5.3)**
+    
+    Framework CSS utilizado para o desenvolvimento de layouts responsivos e estilização adicional da interface.
+    
+- **ngx-mask (v19)**
+    
+    Biblioteca para aplicação de máscaras em campos de formulário, essencial para a formatação de entradas como CPF, datas, telefones, entre outros.
+    
+- **Chart.js (v4.0)**
+    
+    Biblioteca JavaScript para visualização de dados por meio de gráficos interativos e responsivos.
+    
+- **ng2-charts (v8.0)**
+    
+    Conjunto de diretivas Angular que facilita a integração do Chart.js com a aplicação, permitindo gráficos reativos e dinâmicos.
+
+#### Back-end
+
+- **Java 17**
+    
+    Linguagem principal do back-end, utilizada com foco em desempenho, segurança e compatibilidade com frameworks modernos.
+    
+- **Spring Boot (v3.4)**
+    
+    Framework principal da aplicação back-end, que simplifica o desenvolvimento com configuração automática, segurança embutida e suporte completo a REST APIs.
+    
+- **MySQL (v8)**
+    
+    Sistema gerenciador de banco de dados relacional, utilizado para armazenar e gerenciar os dados da aplicação.
+    
+- **Flyway**
+    
+    Ferramenta de versionamento e migração de banco de dados, garantindo controle de versões e consistência no schema da base de dados.
+    
+- **Lombok (v1.18)**
+    
+    Biblioteca que reduz a verbosidade do código Java, gerando automaticamente métodos como getters, setters, construtores, entre outros, por meio de anotações.
+    
+- **ModelMapper (v3.2)**
+    
+    Biblioteca para mapeamento automático entre objetos, facilitando a conversão entre entidades e DTOs (Data Transfer Objects).
+    
+- **SpringDoc OpenAPI / Swagger (v2.8.6)**
+    
+    Ferramenta para geração automática da documentação da API REST, com suporte ao padrão OpenAPI 3 e interface interativa via Swagger UI.
+    
+- **JUnit e Mockito**
+    
+    Bibliotecas utilizadas para testes automatizados. O JUnit é empregado em testes unitários e de integração, enquanto o Mockito permite a criação de mocks e simulações de dependências.
+
+### Diagramas de caso de uso
 
 ![Diagrama de caso de uso - Gerenciar Clientes](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Caso%201%20-%20Gerenciar%20clientes.png)
 
