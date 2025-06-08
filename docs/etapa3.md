@@ -86,6 +86,8 @@ Relatórios de:
 | Falta de visão de desempenho ao longo do tempo | Registro de data nas vendas para análise temporal | Relatórios com filtros por mês e ano |
 | Ausência de dados organizados sobre estoque por categoria | Controle de estoque com vinculação por categoria | Relatório com visão geral de estoque por tipo de produto |
 
+---
+
 # 3.2 Levantamento de Requisitos e Modelagem Inicial
 ## Histórias de usuário
 
@@ -228,7 +230,7 @@ Este projeto adota um conjunto robusto e moderno de tecnologias para garantir de
 
 ![Diagrama de Entidade Relacionamento (DER)- ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/DER_Ana_Agropet.png)
 
-
+---
 
 # 3.3 Protótipo e Planejamento da Arquitetura
 ### Arquitetura do Projeto
@@ -307,8 +309,80 @@ A arquitetura da aplicação segue uma abordagem cliente-servidor baseada em cam
 
 ### Interface do sistema
 
+##### Tela de login
+<img src="img/login.webp" alt="Tela de login">
 
+##### Tela inicial
+<img src="img/home.webp" alt="Tela inicial">
 
+##### Tela de alerta de aniversário de pets
+<img src="img/aniv.pets.webp" alt="Tela de alerta de aniversário de pets">
+
+##### Tela de alerta de vencimento de itens
+<img src="img/venc.itens.webp" alt="Tela de alerta de vencimento de itens">
+
+##### Tela de alerta de estoque
+<img src="img/alerta.estoque.webp" alt="Tela de alerta de estoque">
+
+##### Tela de alerta de vacinas próximas dos pets
+<img src="img/pets.vacinas.webp" alt="Tela de alerta de vacinas próximas dos pets">
+
+##### Tela de alerta de pets com vacinas atrasadas
+<img src="img/vac.atrasadas.webp" alt="Tela de alerta de pets com vacinas atrasadas">
+
+##### Tela de gestão de clientes
+<img src="img/gestao.clientes.webp" alt="Tela de gestão de clientes">
+
+##### Tela de gestão de pets de clientes
+<img src="img/pets.clientes.webp" alt="Tela de gestão de pets de clientes">
+
+##### Tela de cadastro de clientes
+<img src="img/cadastro.clientes.webp" alt="Tela de cadastro de clientes">
+
+##### Tela de cadastro de pets de clientes
+<img src="img/cadastro.pets.webp" alt="Tela de cadastro de pets de clientes">
+
+##### Tela de gestão de produtos
+<img src="img/gestao.produtos.png" alt="Tela de gestão de produtos">
+
+##### Tela de atualização de estoque
+<img src="img/atualizar.estoque.png" alt="Tela de atualização de estoque">
+
+##### Tela de cadastro de produtos
+<img src="img/cadastro.produto1.png" alt="Tela de cadastro de produtos">
+<img src="img/cadastro.produto2.png" alt="Tela de cadastro de produtos">
+
+##### Tela de gestão de vendas
+<img src="img/gestao.vendas.png" alt="Tela de gestão de vendas">
+
+##### Tela de controle de vacinação
+<img src="img/controle.vacinacao.png" alt="Tela de controle de vacinação">
+
+##### Tela de cadastro de vacinação
+<img src="img/cadastro.vacinacao.png" alt="Tela de cadastro de vacinação">
+
+##### Tela de relatórios
+<img src="img/relatorios.png" alt="Tela de relatórios">
+
+##### Relatório de resumo financeiro diário
+<img src="img/financeiro.diario.png" alt="Tela de resumo financeiro diário">
+
+##### Relatório de resumo financeiro mensal
+<img src="img/financeiro.mensal.png" alt="Tela de resumo financeiro mensal">
+
+##### Relatório de produtos mais vendidos
+<img src="img/produtos.mais.vendidos.png" alt="Relatório de produtos mais vendidos">
+
+##### Relatório de clientes que mais comprar
+<img src="img/melhores.clientes.png" alt="Relatório de clientes que mais comprar">
+
+##### Relatório de dias da semana que mais vendem
+<img src="img/dias.mais.vendem.png" alt="Relatório de dias da semana que mais vendem">
+
+##### Relatório de raça de pets
+<img src="img/raca.pets.png" alt="Relatório de raça de pets">
+
+---
 
 ### Fluxo de telas
 ![Fluxo de telas - ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe8-t1-si-eixo8-t1-g4/blob/63d6c5e4f60880c85bfdf5492336b3494122b39f/docs/img/Fluxo%20de%20telas.png)
@@ -391,4 +465,49 @@ As funcionalidades serão implementadas considerando a prioridade definida nos r
 
 
 # 3.5 Geração de Relatórios ou Dashboards Internos
-## -----------
+## Como o Sistema Auxilia na Tomada de Decisão Estratégica
+
+Com base nas necessidades de Inteligência Competitiva (IC) levantadas no plano, o sistema **ANAGRO PETS** foi configurado com relatórios gerenciais que apoiam diretamente a **tomada de decisão estratégica** do petshop, especialmente no que se refere à definição do mix de produtos e ao entendimento do perfil dos clientes e seus pets.
+
+---
+
+## Relatórios Configurados no Sistema
+
+Os relatórios abaixo são baseados nos dados coletados e armazenados no sistema durante as operações diárias e foram desenvolvidos para responder às **KIQs (Key Intelligence Questions)** identificadas no Plano de IC:
+
+- **Produtos Mais Vendidos**  
+  Identifica os produtos com maior saída. Auxilia na tomada de decisão sobre reposição, promoções e destaque no ponto de venda.
+
+- **Clientes que Mais Compram**  
+  Aponta os clientes mais recorrentes. Útil para ações de fidelização, campanhas segmentadas e recompensas.
+
+- **Dias do Mês Mais Vendidos**  
+  Exibe os períodos de pico de vendas dentro do mês. Suporta o planejamento de estoque e ações promocionais sazonais.
+
+- **Dias da Semana Mais Vendidos**  
+  Informa os dias com maior movimento. Facilita a organização da equipe e definição de estratégias comerciais semanais.
+
+- **Idade dos Pets**  
+  Mostra o perfil etário dos animais atendidos. Ajuda na definição do mix de produtos conforme a fase de vida (filhote, adulto, sênior).
+
+- **Raça dos Pets**  
+  Indica as raças mais comuns entre os clientes. Permite personalizar a oferta de acessórios, medicamentos e serviços.
+
+- **Tipo dos Pets**  
+  Aponta a predominância entre os tipos de pets (cães, gatos, aves etc.). Contribui para decisões de diversificação ou especialização dos produtos oferecidos.
+
+---
+
+## Conexão com as KIQs do Plano de IC
+
+Os relatórios foram desenhados para responder diretamente às perguntas estratégicas levantadas no plano de IC, tais como:
+
+- Quais categorias e produtos têm maior demanda entre os clientes?
+- Quais são os produtos mais vendidos e seus principais compradores?
+- Em que dias do mês ou da semana ocorrem mais vendas?
+- Qual é o perfil dos pets atendidos (idade, tipo, raça)?
+- Como essas informações impactam a definição ideal do mix de produtos?
+
+---
+
+Com essas funcionalidades, o sistema passa a ter um papel estratégico, transformando dados brutos em **insights valiosos**. Isso garante que a gestão da AGROPET possa tomar decisões fundamentadas, baseadas em informações reais, e não apenas na intuição.
