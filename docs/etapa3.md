@@ -61,21 +61,31 @@ Registro de vendas:
 
 Geração de alertas:
 
-* Produtos com validade próxima.
+* Produtos com validade próxima. 
 
-* Cadastros duplicados.
+* Estoque mínimo. 
+
+* Aniversário de pets. 
+
+* Vacinas atrasadas. 
+
+* Próximas vacinas. 
 
 Relatórios de:
 
-* Produtos mais e menos vendidos.
+* Produtos mais vendidos. 
 
-* Estoque atual.
+* Clientes que mais compram. 
 
-* Análise de curva ABC (produtos que mais geram receita).
+* Dias do mês mais vendidos. 
 
-* Vendas por categoria e marca.
+* Idade dos pets. 
 
-* Receita mensal/anual por categoria.
+* Tipo dos pets. 
+
+* Estoque atual. 
+
+* Resumo financeiro mensal/anual. 
 
 ## Quadro-Resumo: Problemas Mapeados e Soluções Propostas
 
