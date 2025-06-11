@@ -4,14 +4,16 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "80:80"  # expõe a aplicação Angular via Nginx
     networks:
       - app-network
+    depends_on:
+      - backend  # garante que o backend esteja pronto antes
 
   backend:
     build: ./backend
     ports:
-      - "8080:8080"
+      - "8080:8080"  # expõe a API Spring Boot
     environment:
       - DB_HOST=mysql
       - DB_USER=root
@@ -29,13 +31,16 @@ services:
       MYSQL_DATABASE: anagropets
     volumes:
       - mysql-data:/var/lib/mysql
-    ports:
-      - "3306:3306"
+    # ⚠️ Comentado para segurança — não exponha MySQL publicamente
+    # ports:
+    #   - "3306:3306"
     networks:
       - app-network
 
+# Rede interna para comunicação entre containers
 networks:
   app-network:
 
+# Volume para persistir os dados do MySQL
 volumes:
   mysql-data:
