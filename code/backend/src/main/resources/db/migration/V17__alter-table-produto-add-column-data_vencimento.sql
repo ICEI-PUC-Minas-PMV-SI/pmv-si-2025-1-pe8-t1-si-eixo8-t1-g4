@@ -1,2 +1,2 @@
-ALTER TABLE PRODUTO
+ALTER TABLE produto
 ADD COLUMN data_vencimento DATE;

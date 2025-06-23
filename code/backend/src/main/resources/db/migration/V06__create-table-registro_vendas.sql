@@ -1,4 +1,4 @@
-CREATE TABLE REGISTRO_VENDAS (
+CREATE TABLE registro_vendas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_cliente BIGINT NOT NULL,
     valor_total DECIMAL(10, 2) NOT NULL,

@@ -1,4 +1,4 @@
-CREATE TABLE ESTOQUE (
+CREATE TABLE estoque (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_produto BIGINT NOT NULL,
     quantidade_disponivel BIGINT NOT NULL DEFAULT 0,

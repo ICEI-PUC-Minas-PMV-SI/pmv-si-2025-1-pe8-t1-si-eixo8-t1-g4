@@ -1,1 +1,1 @@
-ALTER TABLE PRODUTO DROP COLUMN descricao;
+ALTER TABLE produto DROP COLUMN descricao;

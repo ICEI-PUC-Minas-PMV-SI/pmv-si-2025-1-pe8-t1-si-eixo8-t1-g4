@@ -1,4 +1,4 @@
-CREATE TABLE PAGAMENTO (
+CREATE TABLE pagamento (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_venda BIGINT NOT NULL,
     id_metodo_pagamento BIGINT NOT NULL,
